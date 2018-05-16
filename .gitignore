@@ -1,2 +1,3 @@
 /hug_project/__pycache__/*.pyc
 /*.sqlite3
+/hug_project_app/__pycache__/*.pyc
