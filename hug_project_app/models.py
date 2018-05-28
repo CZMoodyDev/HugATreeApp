@@ -1,3 +1,22 @@
 from django.db import models
 
-# Create your models here.
+class Tree(models.Model):
+    TREE_ID = models.IntegerField()
+    CIVIC_NUMBER = models.IntegerField()
+    STD_STREET = models.CharField(max_length=50)
+    NEIGHBOURHOOD_NAME = models.CharField(max_length=50)
+    ON_STREET = models.CharField(max_length=50)
+    ON_STREET_BLOCK = models.IntegerField()
+    STREET_SIDE_NAME = models.CharField(max_length=50)
+    ASSIGNED = models.CharField(max_length=10)
+    HEIGHT_RANGE_ID = models.IntegerField()
+    DIAMETER = models.IntegerField()
+    DATE_PLANTED = models.CharField(max_length=50)
+    PLANT_AREA = models.CharField(max_length=10)
+    ROOT_BARRIER = models.CharField(max_length=10)
+    CURB = models.CharField(max_length=10)
+    CULTIVAR_NAME = models.CharField(max_length=50)
+    SPECIES_NAME = models.CharField(max_length=50)
+    COMMON_NAME = models.CharField(max_length=50)
+    LATITUDE = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
+    LONGITUDE = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
