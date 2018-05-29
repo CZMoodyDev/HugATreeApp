@@ -1,3 +1,9 @@
 /hug_project/__pycache__/*.pyc
 /*.sqlite3
 /hug_project_app/__pycache__/*.pyc
+/hug_project_app/migrations/0001_initial.py
+/hug_project_app/migrations/0002_auto_20180526_2257.py
+/hug_project_app/migrations/__pycache__/0001_initial.cpython-36.pyc
+/hug_project_app/migrations/__pycache__/0002_auto_20180526_2257.cpython-36.pyc
+/hug_project_app/migrations/__pycache__/__init__.cpython-36.pyc
+/hug_project_app/management/commands/__pycache__/*.pyc
