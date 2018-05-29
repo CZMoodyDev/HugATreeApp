@@ -1,9 +1,11 @@
-<html>
-<head>
-    <title>Hug A Tree</title>
-</head>
-<body>
-    <h1>Basic View</h1>
-    <a href="{% url 'about' %}">About</a>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}hug a tree{% endblock %}
+
+{% block body_block %}
+
+    <h1>Index Page</h1>
+
+{% endblock %}
