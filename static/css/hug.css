@@ -1,0 +1,12 @@
+/**
+font-family: 'Montserrat', sans-serif;
+font-family: 'Old Standard TT', serif;
+font-family: 'Mate', serif;
+
+ **/
+
+body {
+    font-family: 'Mate', serif;
+    font-size: 13px;
+    line-height: 22px;
+}
