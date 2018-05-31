@@ -1,3 +1,22 @@
 from django.db import models
 
-# Create your models here.
+class Tree(models.Model):
+    TREE_ID = models.IntegerField(blank=True, null=True)
+    CIVIC_NUMBER = models.IntegerField(blank=True, null=True)
+    STD_STREET = models.CharField(max_length=50, blank=True, null=True)
+    NEIGHBOURHOOD_NAME = models.CharField(max_length=50, blank=True, null=True)
+    ON_STREET = models.CharField(max_length=50, blank=True, null=True)
+    ON_STREET_BLOCK = models.IntegerField(blank=True, null=True)
+    STREET_SIDE_NAME = models.CharField(max_length=50, blank=True, null=True)
+    ASSIGNED = models.CharField(max_length=10, blank=True, null=True)
+    HEIGHT_RANGE_ID = models.IntegerField(blank=True, null=True)
+    DIAMETER = models.IntegerField(blank=True, null=True)
+    DATE_PLANTED = models.CharField(max_length=50, blank=True, null=True)
+    PLANT_AREA = models.CharField(max_length=10, blank=True, null=True)
+    ROOT_BARRIER = models.CharField(max_length=10, blank=True, null=True)
+    CURB = models.CharField(max_length=10, blank=True, null=True)
+    CULTIVAR_NAME = models.CharField(max_length=50, blank=True, null=True)
+    SPECIES_NAME = models.CharField(max_length=50, blank=True, null=True)
+    COMMON_NAME = models.CharField(max_length=50, blank=True, null=True)
+    LATITUDE = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
+    LONGITUDE = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
