@@ -1,0 +1,69 @@
+.navbar {
+    background-color: #FFFCF9;
+    position: fixed;
+    bottom: 0;
+    width: 110%;
+    height: 60px;
+    margin-left: -8px;
+    margin-right: -8px;
+    z-index: 100;
+}
+
+.navlinks {
+    margin-left: 18px;
+    margin-top: 22px;
+}
+
+.navlinks a {
+    float: left;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    font-size: 13px;
+    color: #DD5448;
+    text-align: center;
+    padding: 0px 20px;
+    text-decoration: none;
+    position: relative;
+}
+
+.navlinks a:hover {
+    color: #FE7460;
+}
+
+.copyright {
+    position: absolute;
+    width: 110%;
+    height: 32px;
+    bottom: 70px;
+}
+
+.copyright p {
+    font-family: OldStandardTT, Serif;
+    font-style: italic;
+    font-size: 8px;
+    color: #444444;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .navlinks {
+        margin-left: -26px;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+    }
+
+    .navlinks a {
+        padding: 0px 16px;
+    }
+}

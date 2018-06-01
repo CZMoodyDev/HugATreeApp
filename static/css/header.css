@@ -1,0 +1,36 @@
+
+header {
+    position: absolute;
+    background-color: #FFFFFF;
+    top: 0;
+    width: 108%;
+    margin-left: -8px;
+    height: 100px;
+}
+
+
+
+.brand img {
+    display: block;
+    height: 60px;
+    width: auto;
+    margin-top: 40px;
+    margin-left: 86px;
+}
+
+
+
+
+@media screen and (max-width: 414px) {
+    header {
+        height: 44px;
+    }
+
+    .brand img {
+        height: 40px;
+        width: auto;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
