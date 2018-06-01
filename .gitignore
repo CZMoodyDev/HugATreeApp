@@ -7,3 +7,4 @@
 /hug_project_app/management/commands/__pycache__/*.pyc
 /hug_project_app/migrations/0002_auto_20180526_2257.py
 /hug_project_app/migrations/__pycache__/0002_auto_20180526_2257.cpython-36.pyc
+/hug_project_app/migrations
