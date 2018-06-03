@@ -29,32 +29,31 @@
 </head>
 
 <body>
-<header><a class=brand href="/"><img alt="brand" src="{%  static 'images/logo.png' %}"></a></header>
+<header><a class="brand" href="/"><img alt="brand" src="{%  static 'images/logo.png' %}"></a></header>
 
 
-
+{#<div class="copyright"><p>© 2018 Alexis Jensen and Curtis Moody</p></div>#}
 
 <div class="navbar">
     <div class="navlinks">
         <a href="{% url 'about' %}">About</a>
-        {#Uncomment once implemention cpmplete#}
-        {#                      {% if user.is_authenticated %}#}
-        {#                            <li><a href="{% url 'favourites' %}" class="fav">my favourites</a></li>#}
-        {#                            <li><a href="{% url 'logout' %}">logout</a></li>#}
-        {##}
-        {##}
-        {#                        {% else %}#}
-        {#                            <li><a href="{% url 'register' %}">register</a></li>#}
-        {#                            <li><a href="{% url 'login' %}">login</a></li>#}
-        {#                        {% endif %}#}
+{#        Uncomment once implemention cpmplete#}
+{#                              {% if user.is_authenticated %}#}
+{#                                    <li><a href="{% url 'favourites' %}" class="fav">my favourites</a></li>#}
+{#                                    <li><a href="{% url 'logout' %}">logout</a></li>#}
+{##}
+{##}
+{#                                {% else %}#}
+{#                                    <li><a href="{% url 'register' %}">register</a></li>#}
+{#                                    <li><a href="{% url 'login' %}">login</a></li>#}
+{#                                {% endif %}#}
 
-        {#Dummy links - erase after above is working#}
+{#        Dummy links - erase after above is working#}
         <a href="/">register</a>
-        <a href="cv.html">login</a>
+        <a href="/">login</a>
     </div>
 </div>
 
-<div class="copyright"><p>© 2018 Alexis Jensen and Curtis Moody</p></div>
 
 {% block body_block %}{% endblock %}
 

@@ -2,11 +2,12 @@
     background-color: #FFFCF9;
     position: fixed;
     bottom: 0;
-    width: 110%;
+    width: 100vw;
     height: 60px;
-    margin-left: -8px;
-    margin-right: -8px;
+    margin: 0;
+    overflow: auto;
     z-index: 100;
+
 }
 
 .navlinks {
@@ -34,11 +35,8 @@
 
 .copyright {
     position: absolute;
-    width: 110%;
-    height: 32px;
-    bottom: 70px;
+    bottom: 30px;
 }
-
 .copyright p {
     font-family: OldStandardTT, Serif;
     font-style: italic;
