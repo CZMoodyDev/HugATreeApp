@@ -139,6 +139,8 @@ body {
     cursor: pointer;
     user-select: none;
 }
+
+
 /*style items (options):*/
 .select-items {
     position: absolute;
@@ -337,45 +339,3 @@ p.characters {
     }
 }
 
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 100; /* Sit on top */
-    padding-top: 80px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(255,255,255, 0.9);
-}
-
-/* Modal Content */
-.modal-content {
-    background-color: #F0F9F7;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 200px;
-    padding: 20px;
-    -webkit-border-radius: 30px;
-    border: 2px solid #F0F9F7;
-    width: 392px;
-    height: 480px;
-}
-
-/* The Close Button */
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 36px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #d8d8d8;
-    text-decoration: none;
-    cursor: pointer;
-}

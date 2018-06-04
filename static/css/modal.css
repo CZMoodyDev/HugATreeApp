@@ -1,0 +1,98 @@
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    padding-top: 80px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(255,255,255, 0.9);
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #F0F9F7;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 200px;
+    padding: 20px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    border: 2px solid #F0F9F7;
+    width: 392px;
+    height: 620px;
+}
+
+.container-form {
+    position: relative;
+    padding-top: 40px;
+    width: 286px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+label {
+    position: absolute;
+    left: -32px;
+    font-family: Montserrat, sans-serif;
+    color: #5A634D;
+    font-size: 10px;
+    letter-spacing: 1.43px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 14px 0px;
+    margin: 16px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid rgba(90, 99, 77, 0.60);
+    background-color: #F0F9F7;
+    font-family: 'Mate', serif;
+    letter-spacing: 2.57px;
+    font-size: 17px;
+    color: #979797;
+}
+
+
+input:focus {
+    outline: none;
+}
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #d8d8d8;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button.modalButton {
+    width: 264px;
+    height: 50px;
+    margin-top: 44px;
+    margin-left: 10px;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(90, 99, 77, 0.60);
+    font-family: Montserrat, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #FE7460;
+}
+
+button.modalButton:hover {
+    background-color: #FE7460;
+    color: #FFFFFF;
+}
