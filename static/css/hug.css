@@ -15,6 +15,30 @@ body {
 }
 
 
+#big-green-box {
+    position: absolute;
+    top: 168px;
+    left: 0;
+    display: block;
+    background-color: #F5F7F3;
+    width: 246px;
+    height: 474px;
+    z-index: -2;
+    opacity: 0.5;
+}
+
+#big-pink-box {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    display: block;
+    background-color: #FFFCF9;
+    width: 463px;
+    height: 678px;
+    z-index: -2;
+}
+
+
 .row1 {
     display: -webkit-flex;
     display: flex;
@@ -24,7 +48,6 @@ body {
     align-items: center;
     -webkit-justify-content: center;
     justify-content: center;
-    margin-top: 50px;
     margin-bottom: 150px;
 }
 
@@ -38,7 +61,7 @@ body {
     -webkit-justify-content: center;
     justify-content: center;
     margin-top: 20px;
-    margin-bottom: 120px;
+    margin-bottom: 60px;
     background-color: #ffffff;
 }
 
@@ -70,9 +93,74 @@ body {
 }
 
 
+/*the container must be positioned relative:*/
+.custom-select {
+    position: relative;
+    font-family: mate;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    border: 1px #B6C3AD solid;
+    border-color: #B6C3AD #B6C3AD transparent #B6C3AD;
+    margin-right: auto;
+    margin-left: auto;
+}
+.custom-select select {
+    display: none; /*hide original SELECT element:*/
+}
+.select-selected {
+    background-color: #FFFFFF;
+    text-transform: uppercase;
+    font-family: montserrat, sans-serif;
+    letter-spacing: 1px;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 24px;
+    right: 16px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #EF4D36 transparent transparent transparent;
+}
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #EF4D36 transparent;
+    top: 17px;
+}
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+    color: #444444;
+    padding: 16px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent #B6C3AD transparent;
+    cursor: pointer;
+    user-select: none;
+}
+/*style items (options):*/
+.select-items {
+    position: absolute;
+    background-color: #FFFFFF;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+/*hide the items when the select box is closed:*/
+.select-hide {
+    display: none;
+}
+.select-items div:hover, .same-as-selected {
+    background-color: #F1A196;
+    color: #FFFFFF;
+    border: 1px solid transparent;
+    border-bottom-color: #B6C3AD;
+}
+
 
 #map {
-    margin-top: 22px;
     margin-right: auto;
     margin-left: auto;
     height: 473px;
@@ -137,6 +225,7 @@ p.characters {
     p.characters {width: 200px;}}
 
 @media screen and (max-width: 1024px) {
+    #big-pink-box {height: 580px;}
     #map {height: 440px; width: 420px;}
     .explore p {font-size: 28px;}
     p.characters {width: 160px;}}
@@ -146,12 +235,26 @@ p.characters {
 
 @media screen and (max-width: 768px) {
 
+    #big-green-box {
+        width: 46px;
+        top: 658px;
+        z-index: 0;
+    }
+
+    #big-pink-box {
+        height: 408px;
+        width: 276px;
+        top: 81px;
+    }
+
+
     .row1 {
         display: -webkit-flex;
         display: flex;
         -webkit-flex-direction: column-reverse;
         flex-direction: column-reverse;
         align-items: center;
+        margin-bottom: 100px;
     }
 
     .row2 {
@@ -190,9 +293,18 @@ p.characters {
 
 @media screen and (max-width: 600px) {
 
-     .explore p {
+    #big-green-box {
+        top: 1000px;
+        width: 40px;
+    }
+
+    #big-pink-box {
+        width: 220px;
+    }
+
+    .explore p {
         font-size: 26px;
-         width: 300px;
+        width: 300px;
     }
 
     #map {
@@ -200,23 +312,70 @@ p.characters {
         height: 338px;
     }
 
-     .box2 {
+    .box2 {
         margin-bottom: 30px;
     }
 }
 
 
 @media screen and (max-width: 456px) {
+    #big-pink-box {
+        width: 160px;
+    }
+
     #map {
         width: 300px;
         height: 254px;
     }
-  .explore p {
+    .explore p {
         font-size: 22px;
-         width: 280px;
+        width: 280px;
     }
 
-   p.characters {
+    p.characters {
         width: 240px;
     }
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    padding-top: 80px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(255,255,255, 0.9);
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #F0F9F7;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 200px;
+    padding: 20px;
+    -webkit-border-radius: 30px;
+    border: 2px solid #F0F9F7;
+    width: 392px;
+    height: 480px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #d8d8d8;
+    text-decoration: none;
+    cursor: pointer;
 }

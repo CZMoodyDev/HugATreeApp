@@ -1,3 +1,6 @@
+
+/****** navbar styling ******/
+
 .navbar {
     background-color: #FFFCF9;
     position: fixed;
@@ -7,7 +10,6 @@
     margin: 0;
     overflow: auto;
     z-index: 100;
-
 }
 
 .navlinks {
@@ -33,19 +35,6 @@
     color: #FE7460;
 }
 
-.copyright {
-    position: absolute;
-    bottom: 30px;
-}
-.copyright p {
-    font-family: OldStandardTT, Serif;
-    font-style: italic;
-    font-size: 8px;
-    color: #444444;
-    letter-spacing: 1px;
-    text-align: center;
-}
-
 
 @media screen and (max-width: 768px) {
 
@@ -64,4 +53,37 @@
     .navlinks a {
         padding: 0px 16px;
     }
+}
+
+
+/***** footer styling *****/
+footer {
+    position: relative;
+    height: 60px;
+    width: 100%;
+    background-color: #FFFFFF;
+}
+
+p.copyright {
+    font-family: OldStandardTT, Serif;
+    font-style: italic;
+    position: absolute;
+    width: 100%;
+    font-size: 8px;
+    color: #444444;
+    letter-spacing: 1px;
+    line-height: 60px;
+    text-align: center;
+}
+
+p.copyright {
+    display: block;
+    position: absolute;
+    bottom: 30px;
+    font-family: OldStandardTT, Serif;
+    font-style: italic;
+    font-size: 9px;
+    color: #444444;
+    letter-spacing: 1px;
+    text-align: center;
 }
