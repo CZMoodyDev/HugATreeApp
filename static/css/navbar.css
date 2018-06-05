@@ -64,17 +64,20 @@ footer {
     background-color: #FFFFFF;
 }
 
-
 p.copyright {
     display: block;
-    position: absolute;
-    bottom: 30px;
     font-family: OldStandardTT, Serif;
     font-style: italic;
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
     font-size: 9px;
     color: #444444;
     letter-spacing: 1px;
+    line-height: 60px;
     text-align: center;
 }
+
+
 
 
