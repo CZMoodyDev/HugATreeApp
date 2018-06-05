@@ -24,7 +24,24 @@
     border-radius: 30px;
     border: 2px solid #F0F9F7;
     width: 392px;
-    height: 620px;
+    height: 700px;
+}
+
+p.thank-you {
+    font-family: OldStandardTT-Italic, Georgia, Serif;
+    font-style: italic;
+    font-size: 32px;
+    letter-spacing: 3px;
+    line-height: 1.5em;
+    color: rgba(90, 99, 77, 0.90);
+    text-align: center;
+}
+
+img.thank-you {
+    width: 40px;
+    height: auto;
+    display: block;
+    margin: 20px auto 20px auto;
 }
 
 .container-form {
@@ -36,12 +53,11 @@
 }
 
 label {
-    position: absolute;
-    left: -32px;
     font-family: Montserrat, sans-serif;
     color: #5A634D;
     font-size: 10px;
     letter-spacing: 1.43px;
+    text-transform: uppercase;
 }
 
 input[type=text] {
@@ -62,20 +78,6 @@ input[type=text] {
 input:focus {
     outline: none;
 }
-/* The Close Button */
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 36px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #d8d8d8;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 button.modalButton {
     width: 264px;
@@ -95,4 +97,28 @@ button.modalButton {
 button.modalButton:hover {
     background-color: #FE7460;
     color: #FFFFFF;
+}
+
+
+/* The Close Button - X */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #d8d8d8;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 600px) {
+    .modal-content{width: 300px; }
+    .container-form {width: 246px;}
+    button.modalButton {width: 244px; margin-left: 0;}
+    label {left: -22px;}
 }

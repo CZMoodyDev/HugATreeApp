@@ -14,6 +14,7 @@ body {
     width: 100%;
 }
 
+/**** Index Page ****/
 
 #big-green-box {
     position: absolute;
@@ -26,6 +27,7 @@ body {
     z-index: -2;
     opacity: 0.5;
 }
+
 
 #big-pink-box {
     position: absolute;
@@ -62,26 +64,23 @@ body {
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 60px;
+    vertical-align: top;
     background-color: #ffffff;
 }
-
 
 .box {
     width: 48vw;
 }
 
 .box2 {
-    width: 25vw;
     vertical-align: top;
+    width: 25vw;
 }
 
-.explore {
-    text-align: center;
-}
 
-.explore p {
+p.explore {
     font-family: OldStandardTT-Italic, Georgia, Serif;
-    font-style: italic;
+    font-weight: normal;
     font-size: 32px;
     color: #535353;
     letter-spacing: 3px;
@@ -90,10 +89,12 @@ body {
     height: auto;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 
 
-/*the container must be positioned relative:*/
+/* - Select Stylng (taken from w3)
+the container must be positioned relative: */
 .custom-select {
     position: relative;
     font-family: mate;
@@ -108,13 +109,17 @@ body {
     display: none; /*hide original SELECT element:*/
 }
 .select-selected {
-    background-color: #FFFFFF;
+    font-family: Montserrat, sans-serif;
     text-transform: uppercase;
-    font-family: montserrat, sans-serif;
+    background-color: #FFFFFF;
     letter-spacing: 1px;
 }
 
 /*style the arrow inside the select element:*/
+select:focus option.holder {
+    display: none;
+}
+
 .select-selected:after {
     position: absolute;
     content: "";
@@ -125,11 +130,13 @@ body {
     border: 6px solid transparent;
     border-color: #EF4D36 transparent transparent transparent;
 }
+
 /*point the arrow upwards when the select box is open (active):*/
 .select-selected.select-arrow-active:after {
     border-color: transparent transparent #EF4D36 transparent;
     top: 17px;
 }
+
 /*style the items (options), including the selected item:*/
 .select-items div,.select-selected {
     color: #444444;
@@ -140,7 +147,6 @@ body {
     user-select: none;
 }
 
-
 /*style items (options):*/
 .select-items {
     position: absolute;
@@ -150,16 +156,19 @@ body {
     right: 0;
     z-index: 99;
 }
+
 /*hide the items when the select box is closed:*/
 .select-hide {
     display: none;
 }
+
 .select-items div:hover, .same-as-selected {
     background-color: #F1A196;
     color: #FFFFFF;
     border: 1px solid transparent;
     border-bottom-color: #B6C3AD;
 }
+/* - End of Select Stylng  */
 
 
 #map {
@@ -171,6 +180,7 @@ body {
     border: 2px solid #B2D6B6;
     z-index:0;
 }
+
 
 .characters-title {
     width: 100%;
@@ -191,15 +201,16 @@ body {
 }
 
 h1.characters-title {
-    font-family: OldStandardTT;
+    font-family: OldStandardTT, Georgia, Serif;
+    font-weight: 300;
     font-size: 30px;
-    font-weight: lighter;
-    letter-spacing: 1.67px;
+    letter-spacing: 2px;
     color: #5A634D;
     margin-right: auto;
     margin-left: auto;
     text-align: center;
 }
+
 
 img.characters {
     display: block;
@@ -236,7 +247,6 @@ p.characters {
     #map {height: 390px; width: 370px;}}
 
 @media screen and (max-width: 768px) {
-
     #big-green-box {
         width: 46px;
         top: 658px;
@@ -248,7 +258,6 @@ p.characters {
         width: 276px;
         top: 81px;
     }
-
 
     .row1 {
         display: -webkit-flex;
@@ -266,7 +275,6 @@ p.characters {
         flex-direction: column;
         align-items: center;
     }
-
 
     .box {
         width: 100vw;
@@ -294,48 +302,207 @@ p.characters {
 }
 
 @media screen and (max-width: 600px) {
-
-    #big-green-box {
-        top: 1000px;
-        width: 40px;
-    }
-
-    #big-pink-box {
-        width: 220px;
-    }
-
-    .explore p {
-        font-size: 26px;
-        width: 300px;
-    }
-
-    #map {
-        width: 400px;
-        height: 338px;
-    }
-
-    .box2 {
-        margin-bottom: 30px;
-    }
-}
+    #big-green-box {top: 1000px; width: 40px;}
+    #big-pink-box {width: 220px;}
+    .explore p {font-size: 26px; width: 300px;}
+    #map {width: 400px;height: 338px;}
+    .box2 {margin-bottom: 30px;}}
 
 
 @media screen and (max-width: 456px) {
-    #big-pink-box {
-        width: 160px;
+    #big-pink-box {width: 160px;}
+    #map {width: 300px; height: 254px;}
+    .explore p {font-size: 22px;width: 280px;}
+    p.characters {width: 240px;}}
+
+/**** End of Index Page ****/
+
+
+
+/**** Tree Detail Page ************************************************/
+
+
+#tree-detail-green-box {
+    position: absolute;
+    top: 138px;
+    left: 0;
+    display: block;
+    background-color: #F5F7F3;
+    width: 174px;
+    height: 650px;
+    z-index: -2;
+    opacity: 0.5;
+}
+
+#tree-detail-pink-box {
+    background-color: #FE7460;
+    width: 664px;
+    height: 344px;
+    z-index: -30;
+    opacity: 0.1;
+    margin-left: 160px;
+
+}
+
+.row1-treeDetail {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    margin-bottom: 150px;
+}
+
+.box-treeDetail {
+    position: relative;
+    width: 48vw;
+}
+
+#tree-detail-map {
+    width: 472px;
+    height: 408px;
+    margin-top: -540px;
+    margin-right: auto;
+    margin-left: auto;
+    -webkit-border-radius: 30px;
+    border: 2px solid #B2D6B6;
+    z-index:0;
+}
+
+
+.tree-info-container {
+    float: right;
+    width: 430px;
+    height: 1090px;
+    right: 0;
+    top: -220px;
+    background-color: #F0F9F7;
+    -webkit-border-radius: 32px;
+    border-radius: 32px;
+    border: 2px solid #F0F9F7;
+    padding-top: 30px;
+}
+
+.tree-info-line {
+    margin-top: -8px;
+    margin-bottom: 16px;
+    margin-left: 8px;
+    border: 1px solid transparent;
+    border-bottom-color: #5A634D;
+    width: 292px;
+}
+
+
+p.shortAnswer {
+    margin-top: 8px;
+    margin-left: 12px;
+    font-family: Mate-Regular, Georgia, Serif;
+    font-size: 18px;
+    color: #5A634D;
+    letter-spacing: 2.57px;
+    text-align: left;
+
+}
+
+p.longAnswer {
+    font-family: Mate-Regular, Georgia, Serif;
+    font-size: 13px;
+    color: #5A634D;
+    letter-spacing: 1.47px;
+    line-height: 17px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+h3.tree-type-more-info {
+    font-family: OldStandardTT-Bold, Georgia, Serif;
+    font-size: 14px;
+    color: #5A634D;
+    letter-spacing: 0.7px;
+    text-align: left;
+    margin-top: 40px;
+}
+
+.row2-treeDetail {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: -370px;
+    margin-bottom: 150px;
+}
+
+.tree-photo {
+    width: 250px;
+    height: auto;
+    -webkit-border-radius: 13px;
+    border-radius: 13px;
+    margin: 30px;
+    z-index: 100;
+}
+
+#orange-box {
+    background-color: #EFCBB4;
+    width: 122px;
+    height: 26px;
+    margin-left: auto;
+    margin-right: auto;
+    left: -30px;
+    padding-right: 30px;
+}
+
+
+@media screen and (max-width: 1000px) {
+
+    .row1-treeDetail {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
     }
 
-    #map {
-        width: 300px;
-        height: 254px;
+    .box-treeDetail {
+        width: 100vw;
+        margin-bottom: 60px;
     }
-    .explore p {
-        font-size: 22px;
-        width: 280px;
+    #tree-detail-map {
+        margin-top: 0;
     }
-
-    p.characters {
-        width: 240px;
+    .tree-info-container {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
+@media screen and (max-width: 768px) {
+    #tree-detail-map {
+        width: 360px;
+        height: 310px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    #tree-detail-map {
+        margin-top: 30px;
+        width: 300px;
+        height: 258px;
+    }
+
+    .tree-info-container {
+        width: 320px;
+        height: 1200px;
+        padding-right: 20px;
+    }
+}

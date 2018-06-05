@@ -4,17 +4,15 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--[if lt IE 9]>
-     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-     <![endif]-->
 
-    <!--favicon -->
+    <!--favicon TODO-->
     <link rel="icon" href="{% static 'images/tree.png' %}">
     <title>{% block title %}{% endblock %}</title>
 
     <!--scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <!-- <script src="{% static 'scripts/hug.js' %}" type="text/javascript"></script> -->
 
     <!--fonts -->
@@ -26,7 +24,6 @@
     <link href="{% static 'css/modal.css' %}" rel="stylesheet">
     <link href="{% static 'css/navbar.css' %}" rel="stylesheet">
 
-
 </head>
 
 <body>
@@ -37,13 +34,10 @@
 
 <!-- Register Modal -->
 <div id="registerModal" class="modal">
-
-    <!-- Register Modal content -->
     <div class="modal-content">
         <span id="registerModalClose" class="close">&times;</span>
-
         <div class="container-form">
-            <form>
+            <form id="registerForm">
                 <label for="fname">First Name</label>
                 <input type="text" id="fname" name="fname">
                 <label for="lname">Last Name</label>
@@ -54,7 +48,7 @@
                 <input type="text" id="password" name="password">
                 <label for="rpassword">Retype Password</label>
                 <input type="text" id="rpassword" name="rpassword">
-                <button class="modalButton" type="submit" value="Submit">Register</button>
+                <button id="registerButton" class="modalButton" type="submit" value="Submit">Register</button>
             </form>
         </div>
     </div>
@@ -64,8 +58,6 @@
 
 <!-- Login Modal -->
 <div id="loginModal" class="modal">
-
-    <!-- Login Modal Content -->
     <div id="loginModalContent" class="modal-content">
         <span id="loginModalClose" class="close">&times;</span>
         <div class="container-form">
@@ -81,6 +73,17 @@
 </div>
 
 
+<!-- Thank you Modal -->
+<div id="thankYouModal" class="modal">
+    <div class="modal-content">
+        <span id="thankYouModalClose" class="close">&times;</span>
+        <div class="container-form">
+            <p class="thank-you">Thank you</br>for</br>registering</p>
+            <img class="thank-you" alt="heart" src="{%  static 'images/heart-full.png' %}">
+            <p class="thank-you">Now you can</br>save your</br>favorite</br>trees</p>
+        </div>
+    </div>
+</div>
 
 
 <footer><p class="copyright">© 2018 Alexis Jensen and Curtis Moody</p></footer>
@@ -100,53 +103,74 @@
         {#                                    <li><a href="{% url 'login' %}">login</a></li>#}
         {#                                {% endif %}#}
 
-        {#        Dummy links - erase after above is working#}
+      <!-- Real links place up above after it is working -->
         <a id="registerLink" href="/">register</a>
         <a id="loginLink" href="/">login</a>
     </div>
 </nav>
 
-<script>
 
-    // Get the button that opens the modal
+<!-- Modal Scripts -->
+<script>
     var registerLink = document.getElementById("registerLink");
     var registerModal = document.getElementById('registerModal');
+    var registerButton = document.getElementById('registerButton');
 
     var loginLink = document.getElementById("loginLink");
     var loginModal = document.getElementById('loginModal');
     var loginModalContent = document.getElementById('loginModalContent');
 
-
+    var thankYouModal = document.getElementById('thankYouModal');
 
     // When the user clicks register link, open register modal
     registerLink.onclick = function(event) {
         event.preventDefault();
-         if (loginModal.style.display === "block"){loginModal.style.display = "none";}
+        if (loginModal.style.display === "block"){loginModal.style.display = "none";}
         registerModal.style.display = "block";
     }
 
-    // When the user clicks login link, open register modal
+    // Do this to allow thank you modal to appear
+    // not ideal - delays form being sent and thus refreshing of screen happens at a random time
+    registerButton.onclick = function() {
+        $(window).load(function(){
+            $("#thankYouModal").css("display", "block");
+        });
+        {#setTimeout( function () {#}
+        {#    registerForm.submit();#}
+        //  }, 10000);
+        {#registerModal.style.display = "none";#}
+        {#thankYouModal.style.display = "block";#}
+    }
+
+
+
+    // When the user clicks login link, open login modal
     loginLink.onclick = function(event) {
         event.preventDefault();
         if (registerModal.style.display === "block"){registerModal.style.display = "none";}
-            loginModal.style.display = "block";
-            loginModalContent.style.height = "360px";
-        }
+        loginModal.style.display = "block";
+        loginModalContent.style.height = "360px";
+    }
 
-      //Close Button functionality
-      // Get the <span> element that closes the modal
+
+    //Close Button functionality
+    // Get the <span> element that closes the modal
     var registerX = document.getElementById('registerModalClose');
     var loginX = document.getElementById('loginModalClose');
+    var thankYouX = document.getElementById('thankYouModalClose');
 
-     // When the user clicks on <span> (x), close the modal
+    // When the user clicks on <span> (x), close the modal
     registerX.onclick = function() {
         registerModal.style.display = "none"
     }
 
-      loginX.onclick = function() {
+    loginX.onclick = function() {
         loginModal.style.display = "none"
     }
 
+    thankYouX.onclick = function() {
+        thankYouModal.style.display = "none"
+    }
 </script>
 
 </body>
