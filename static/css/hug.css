@@ -376,14 +376,13 @@ p.characters {
 .tree-info-container {
     float: right;
     width: 430px;
-    height: 1090px;
     right: 0;
     top: -220px;
     background-color: #F0F9F7;
     -webkit-border-radius: 32px;
     border-radius: 32px;
     border: 2px solid #F0F9F7;
-    padding-top: 30px;
+    padding: 30px 20px 40px 0;
 }
 
 .tree-info-line {
@@ -469,6 +468,10 @@ h3.tree-type-more-info {
         flex-direction: column;
         align-items: center;
         margin-bottom: 40px;
+    }
+
+    .row2-treeDetail {
+        margin-bottom: 50px;
     }
 
     .box-treeDetail {
