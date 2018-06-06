@@ -103,7 +103,7 @@
         {#                                    <li><a href="{% url 'login' %}">login</a></li>#}
         {#                                {% endif %}#}
 
-      <!-- Real links place up above after it is working -->
+        <!-- Real links place up above after it is working -->
         <a id="registerLink" href="/">register</a>
         <a id="loginLink" href="/">login</a>
     </div>
@@ -112,6 +112,8 @@
 
 <!-- Modal Scripts -->
 <script>
+
+   // Variables for modals
     var registerLink = document.getElementById("registerLink");
     var registerModal = document.getElementById('registerModal');
     var registerButton = document.getElementById('registerButton');
@@ -122,6 +124,7 @@
 
     var thankYouModal = document.getElementById('thankYouModal');
 
+
     // When the user clicks register link, open register modal
     registerLink.onclick = function(event) {
         event.preventDefault();
@@ -129,18 +132,32 @@
         registerModal.style.display = "block";
     }
 
+
     // Do this to allow thank you modal to appear
     // not ideal - delays form being sent and thus refreshing of screen happens at a random time
-    registerButton.onclick = function() {
+    var registerForm = document.getElementById('#registerForm');
+ // Attempting Helper functions
+        function onLoadAttempt(modal) {
         $(window).load(function(){
-            $("#thankYouModal").css("display", "block");
+            $("#" + modal).css("display", "block");
         });
-        {#setTimeout( function () {#}
-        {#    registerForm.submit();#}
-        //  }, 10000);
-        {#registerModal.style.display = "none";#}
-        {#thankYouModal.style.display = "block";#}
     }
+
+    function delayRegistration(form, modal1, modal2){
+        event.preventDefault()
+        setTimeout( function () {
+            form.submit();
+        }, 1000);
+        modal1.style.display = "none";
+        modal2.style.display = "block";
+    }
+
+
+    registerButton.onclick = function() {
+        onLoadAttempt(thankYouModal);
+        //delayRegistration(registerForm, registerModal, thankYouModal);
+    }
+
 
 
 

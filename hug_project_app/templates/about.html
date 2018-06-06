@@ -17,6 +17,7 @@
         <!-- Tree Information Section -->
         <div class="box-treeDetail">
             <div class="tree-info-container">
+                <img id="heart" class="tree-detail-heart" src="{%  static 'images/heart-empty.png' %}" alt="heart">
                 <label>Tree ID</label>
                 <p class="shortAnswer">234</p>
                 <div class="tree-info-line"></div>
@@ -48,7 +49,7 @@
     <div class="characters-title" id="orange-box" id="tree-detail-pink-box">
         <h1 class="characters-title">Photos</h1>
     </div>
-     <div id="tree-detail-pink-box"></div>
+    <div id="tree-detail-pink-box"></div>
     <div class="row2-treeDetail">
         <img class="tree-photo" src="{%  static 'images/photo.png' %}" alt="tree hugger 1">
         <img class="tree-photo" src="{%  static 'images/photo2.png' %}" alt="tree hugger 2">
@@ -430,4 +431,20 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLLf1AL8ZMRKireBuRIL_n6XD3W3bD5qc&callback=initMap"
             async defer></script>
 
+    <!-- Toggle heart - full/empty -->
+    <script>
+// TODO: adding and removing to user's favourites list needs to be implemented
+        var full = "{%  static 'images/heart-full.png' %}";
+        var empty = "{%  static 'images/heart-empty.png' %}";
+        var heart = document.getElementById('heart');
+
+        heart.onclick = function() {
+            var currentImage = heart.getAttribute('src');
+            if (currentImage === full) {
+                heart.src=empty;
+            } else {
+                heart.src=full;
+            }
+        }
+    </script>
 {% endblock %}

@@ -385,6 +385,16 @@ p.characters {
     padding: 30px 20px 40px 0;
 }
 
+.tree-detail-heart {
+    float: right;
+    margin-right: 10px;
+    margin-top: -5px;
+    display: block;
+    width: 46px;
+    height: auto;
+    right: 10px;
+}
+
 .tree-info-line {
     margin-top: -8px;
     margin-bottom: 16px;
