@@ -1,104 +1,77 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>{% extends 'base.html' %}
 {% load static %}
 
-
-{% block title %}hug a tree{% endblock %}
+<!-- Tree detail page masquerading as about till urls all hooked up -->
+<!-- Uncomment when models implemented and erase dummy one -->
+{#{% block title %}tree no. {{treeId}}{% endblock %}#}
+{% block title %}tree no. 234{% endblock %}
 
 {% block body_block %}
-
-    <div id="big-green-box"></div>
-    <div id="big-pink-box"></div>
-    <div class="row1">
-        <!-- Dropdown Section -->
-        <div class="box">
-            <p class="explore">Explore and get to know the lovable</br>trees of</br>Vancouver</p>
-
-            <!-- Choose a Neighbourhood Select -->
-            <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
-            <div id="neighbourhood" class="custom-select" style="width:310px;">
-                <select name="neighborhood">
-                    <option value="">choose a neighbourhood</option>
-                    <option value="ARBUTUS RIDGE,Arbutus Ridge">arbutus ridge</option>
-                    <option value="parcel">downtown</option>
-                    <option value="DUNBAR - SOUTHLANDS,Dunbar-Southlands">dunbar southlands</option>
-                    <option value="FAIRVIEW,Fairview">fairview</option>
-                    <option value="GRANDVIEW - WOODLANDS,Grandview-Woodland">grandview woodlands</option>
-                    <option value="HASTINGS - SUNRISE,Hastings-Sunrise">hastings sunrise</option>
-                    <option value="KENSINGTON-CEDAR COTTAGE,Kensington-Cedar Cottage">kensington cedar cottage</option>
-                    <option value="KERRISDALE,Kerrisdale">kerrisdale</option>
-                    <option value="KILLARNEY,Killarney">killarney</option>
-                    <option value="KITSILANO,Kitsilano">kitsilano</option>
-                    <option value="MARPOLE,Marpole">marpole</option>
-                    <option value="MOUNT PLEASANT,Mount Pleasant">mount pleasant</option>
-                    <option value="OAKRIDGE,Oakridge">oakridge</option>
-                    <option value="RENFREW - COLLINGWOOD,Renfrew-Collingwood">renfrew collingwood</option>
-                    <option value="RILEY PARK,Riley-Little Mountain">riley park</option>
-                    <option value="SHAUGHNESSY,Shaughnessy">shaughnessy</option>
-                    <option value="SOUTH CAMBIE,South Cambie">south cambie</option>
-                    <option value="STRATHCONA,Strathcona">strathcona</option>
-                    <option value="SUNSET,Sunset">sunset</option>
-                    <option value="VICTORIA - FRASERVIEW,Victoria-Fraserview">victoria fraserview</option>
-                    <option value="WEST END,West End">west end</option>
-                    <option value="WEST POINT GREY,West Point Grey">west point grey</option>
-                </select>
-            </div>
-
-
-
-            <!-- Choose a Mood Select -->
-            <div id="mood" class="custom-select" style="width:310px; margin-top: 34px;">
-                <select name="mood">
-                    <option value="" disabled selected hidden>choose your mood</option>
-                    <option value="0">small cuddle</option>
-                    <option value="1">medium embrace</option>
-                    <option value="2">large nestle</option>
-                    <option value="3">hungry hugs</option>
-                    <option value="4">centre of love</option>
-                </select>
-            </div>
-
-        </div>
-
-
+    <div id="tree-detail-green-box"></div>
+    <div class="row1-treeDetail">
         <!-- Map Section -->
-        <div class="box">
-            <div id="map"></div>
+        <div class="box-treeDetail">
+            <div id="tree-detail-map"></div>
+        </div>
+
+        <!-- Tree Information Section -->
+        <div class="box-treeDetail">
+            <div class="tree-info-container">
+                <img id="heart" class="tree-detail-heart" src="{%  static 'images/heart-empty.png' %}" alt="heart">
+                <label>Tree ID</label>
+                <p class="shortAnswer">234</p>
+                <div class="tree-info-line"></div>
+                <label>Name</label>
+                <p class="shortAnswer">Maple Tree</p>
+                <div class="tree-info-line"></div>
+                <label>Diameter</label>
+                <p class="shortAnswer">5 Inches</p>
+                <div class="tree-info-line"></div>
+                <label>Date Planted</label>
+                <p class="shortAnswer">May 23, 1997</p>
+                <div class="tree-info-line"></div>
+                <label>Neighbourhood</label>
+                <p class="shortAnswer">Kitsilano</p>
+                <div class="tree-info-line"></div>
+                <h3 class="tree-type-more-info">More about {Insert Tree Types Here}</h3>
+                <label>Description</label>
+                <p class="longAnswer">A medium to large sized tree, reaching heights of 18 to 27 metres (60 to 90 ft) and exceptionally over 35 metres (115 feet). The leaves are usually 9 to 11 centimetres (3 1⁄2 to 4 1⁄4 in) long on a full grown tree. The trunk diameter can range from 46 to 76 cm (18 to 30 in), depending on the growing conditions</p>
+                <label>Habitat</label>
+                <p class="longAnswer">One of the most abundant and widespread trees in eastern North America. It can be found from the south of Newfoundland, Nova Scotia and southern Quebec to the south west of Ontario, extreme southeastern Manitoba and northern Minnesota; south to Wisconsin, Illinois, Missouri, eastern Oklahoma, and eastern Texas in its western range; and east to Florida. It has the largest continuous range along the North American Atlantic Coast of any tree that occurs in Florida. In total it ranges 2,600 km (1,600 mi) from north to south.[6] The species is native to all regions of the United States east of the 95th meridian.</p>
+                <label>Uses (other than hugging)</label>
+                <p class="longAnswer">In the lumber industry Acer rubrum is considered a "soft maple", a designation it shares, commercially, with silver maple  It is also used in the production of maple syrup. It is a medium quality firewood.</p>
+            </div>
         </div>
     </div>
 
-    <!-- The Trees Section -->
-    <div class="characters-title" id="pink-character-box">
-        <h1 class="characters-title">The Trees</h1>
+
+    <!-- Photo Section -->
+    <div class="characters-title" id="orange-box" id="tree-detail-pink-box">
+        <h1 class="characters-title">Photos</h1>
     </div>
-    <div class="row2">
-        <div class="box2">
-            <img class="characters" src="{%  static 'images/tree.png' %}" alt="tree">
-            <p class="characters">THE GOOD OL' TREE </br> comes in three mood sizes ranging from small cuddle to medium embrace to large nestle based on the tree's diameter. </p>
-        </div>
-        <div class="box2">
-            <img class="characters" src="{%  static 'images/fruit-tree.png' %}" alt="fruit tree">
-            <p class="characters">THE FRUIT TREE </br> will satisfy your mood for a hungry hug.  They point you to local community garden that offer a variety of edible hugs.</p>
-        </div>
-        <div class="box2">
-            <img class="characters" src="{%  static 'images/park.png' %}" alt="park">
-            <p class="characters">THE PARK </br> is for when you are in need of a centre of love - leading you to a mother-load of trees to get a huge hugging fix.</p>
-        </div>
-        <div class="box2">
-            <img class="characters" src="{%  static 'images/favourite-tree.png' %}" alt="favourite tree">
-            <p class="characters">THE FAVOURITE TREE </br> appears when you are logged in and 'heart' a tree, letting you visually keep track of all the trees you enjoy hugging.</p>
-        </div>
+    <div id="tree-detail-pink-box"></div>
+    <div class="row2-treeDetail">
+        <img class="tree-photo" src="{%  static 'images/photo.png' %}" alt="tree hugger 1">
+        <img class="tree-photo" src="{%  static 'images/photo2.png' %}" alt="tree hugger 2">
     </div>
 
 
 
-    <!-------- Scripts ---------->
-
-    <!-- Map Styling Script -->
+    <!-- Map  and its Styling Script -->
     <script>
         function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
+            var map = new google.maps.Map(document.getElementById('tree-detail-map'), {
                 center: {lat: 49.270831, lng: -123.15999},
-                zoom: 15,
+                zoom: 17,
                 gestureHandling: 'greedy',
                 styles: [
                     {
@@ -467,96 +440,20 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLLf1AL8ZMRKireBuRIL_n6XD3W3bD5qc&callback=initMap"
             async defer></script>
 
-
-    <!--- Dropdown Styling Script -->
+    <!-- Toggle heart - full/empty -->
     <script>
-        var x, i, j, selElmnt, a, b, c;
-        /*look for any elements with the class "custom-select":*/
-        x = document.getElementsByClassName("custom-select");
-        for (i = 0; i < x.length; i++) {
-            selElmnt = x[i].getElementsByTagName("select")[0];
-            /*for each element, create a new DIV that will act as the selected item:*/
-            a = document.createElement("DIV");
-            a.setAttribute("class", "select-selected");
-            a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-            x[i].appendChild(a);
-            /*for each element, create a new DIV that will contain the option list:*/
-            b = document.createElement("DIV");
-            b.setAttribute("class", "select-items select-hide");
-            for (j = 0; j < selElmnt.length; j++) {
-                /*for each option in the original select element,
-                create a new DIV that will act as an option item:*/
-                c = document.createElement("DIV");
-                c.innerHTML = selElmnt.options[j].innerHTML;
-                c.addEventListener("click", function(e) {
-                    /*when an item is clicked, update the original select box,
-                    and the selected item:*/
-                    var y, i, k, s, h;
-                    s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-                    h = this.parentNode.previousSibling;
-                    for (i = 0; i < s.length; i++) {
-                        if (s.options[i].innerHTML == this.innerHTML) {
-                            s.selectedIndex = i;
-                            h.innerHTML = this.innerHTML;
-                            y = this.parentNode.getElementsByClassName("same-as-selected");
-                            for (k = 0; k < y.length; k++) {
-                                y[k].removeAttribute("class");
-                            }
-                            this.setAttribute("class", "same-as-selected");
-                            break;
-                        }
-                    }
-                    h.click();
-                });
-                b.appendChild(c);
-            }
-            x[i].appendChild(b);
-            a.addEventListener("click", function(e) {
-                /*when the select box is clicked, close any other select boxes,
-                and open/close the current select box:*/
-                e.stopPropagation();
-                closeAllSelect(this);
-                this.nextSibling.classList.toggle("select-hide");
-                this.classList.toggle("select-arrow-active");
-            });
-        }
-        function closeAllSelect(elmnt) {
-            /*a function that will close all select boxes in the document,
-            except the current select box:*/
-            var x, y, i, arrNo = [];
-            x = document.getElementsByClassName("select-items");
-            y = document.getElementsByClassName("select-selected");
-            for (i = 0; i < y.length; i++) {
-                if (elmnt == y[i]) {
-                    arrNo.push(i)
-                } else {
-                    y[i].classList.remove("select-arrow-active");
-                }
-            }
-            for (i = 0; i < x.length; i++) {
-                if (arrNo.indexOf(i)) {
-                    x[i].classList.add("select-hide");
-                }
+// TODO: adding and removing to user's favourites list needs to be implemented
+        var full = "{%  static 'images/heart-full.png' %}";
+        var empty = "{%  static 'images/heart-empty.png' %}";
+        var heart = document.getElementById('heart');
+
+        heart.onclick = function() {
+            var currentImage = heart.getAttribute('src');
+            if (currentImage === full) {
+                heart.src=empty;
+            } else {
+                heart.src=full;
             }
         }
-        /*if the user clicks anywhere outside the select box,
-        then close all select boxes:*/
-        document.addEventListener("click", closeAllSelect);
     </script>
-
-
-    <!-- TODO: Function to show Mood Dropdown if neighbourhood is chosen -- not working :( -->
-    <script>
-        $(function() {
-            $('#mood').hide();
-            $('#neighbourhood').change(function(){
-                if($('#neighbourhood').val() !== '') {
-                    $('#mood').show();
-                } else {
-                    $('#mood').hide();
-                }
-            });
-        });
-    </script>
-
 {% endblock %}

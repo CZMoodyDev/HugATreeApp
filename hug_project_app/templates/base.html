@@ -92,6 +92,8 @@
 <nav class="navbar">
     <div class="navlinks">
         <a href="{% url 'about' %}">About</a>
+        <!--Remove link after speech bubble with link implemented from map icon -->
+        <a href="{% url 'tree_detail' %}">Tree Detail</a>
         {#        Uncomment once implemention cpmplete#}
         {#                              {% if user.is_authenticated %}#}
         {#                                    <li><a href="{% url 'favourites' %}" class="fav">my favourites</a></li>#}
@@ -113,7 +115,7 @@
 <!-- Modal Scripts -->
 <script>
 
-   // Variables for modals
+    // Variables for modals
     var registerLink = document.getElementById("registerLink");
     var registerModal = document.getElementById('registerModal');
     var registerButton = document.getElementById('registerButton');
@@ -121,8 +123,6 @@
     var loginLink = document.getElementById("loginLink");
     var loginModal = document.getElementById('loginModal');
     var loginModalContent = document.getElementById('loginModalContent');
-
-    var thankYouModal = document.getElementById('thankYouModal');
 
 
     // When the user clicks register link, open register modal
@@ -132,35 +132,6 @@
         registerModal.style.display = "block";
     }
 
-
-    // Do this to allow thank you modal to appear
-    // not ideal - delays form being sent and thus refreshing of screen happens at a random time
-    var registerForm = document.getElementById('#registerForm');
- // Attempting Helper functions
-        function onLoadAttempt(modal) {
-        $(window).load(function(){
-            $("#" + modal).css("display", "block");
-        });
-    }
-
-    function delayRegistration(form, modal1, modal2){
-        event.preventDefault()
-        setTimeout( function () {
-            form.submit();
-        }, 1000);
-        modal1.style.display = "none";
-        modal2.style.display = "block";
-    }
-
-
-    registerButton.onclick = function() {
-        onLoadAttempt(thankYouModal);
-        //delayRegistration(registerForm, registerModal, thankYouModal);
-    }
-
-
-
-
     // When the user clicks login link, open login modal
     loginLink.onclick = function(event) {
         event.preventDefault();
@@ -169,14 +140,13 @@
         loginModalContent.style.height = "360px";
     }
 
-
     //Close Button functionality
     // Get the <span> element that closes the modal
     var registerX = document.getElementById('registerModalClose');
     var loginX = document.getElementById('loginModalClose');
     var thankYouX = document.getElementById('thankYouModalClose');
 
-    // When the user clicks on <span> (x), close the modal
+    // When the user clicks on (x), close the modal
     registerX.onclick = function() {
         registerModal.style.display = "none"
     }
@@ -188,6 +158,17 @@
     thankYouX.onclick = function() {
         thankYouModal.style.display = "none"
     }
+
+
+    var thankYouModal = document.getElementById('thankYouModal');
+    var registerForm = document.getElementById('#registerForm');
+    // TODO: Can't get thank you modal to stay - I think the form submit is redirecting/refreshing the page
+    registerButton.onclick = function() {
+        $(document).ready(function(){
+            $('#thankYouModal').show();
+        });
+    };
+
 </script>
 
 </body>

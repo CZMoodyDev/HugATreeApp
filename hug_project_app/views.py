@@ -6,3 +6,6 @@ def index(request):
     
 def about(request):
     return render(request, 'about.html')
+
+def tree_detail(request):
+    return render(request, 'tree_detail.html')
