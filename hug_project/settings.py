@@ -16,6 +16,10 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -37,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hug_project_app'
+    'hug_project_app',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
