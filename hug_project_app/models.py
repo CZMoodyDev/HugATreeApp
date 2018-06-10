@@ -21,6 +21,7 @@ class Tree(models.Model):
     COMMON_NAME = models.CharField(max_length=50, blank=True, null=True)
     LATITUDE = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
     LONGITUDE = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
+    TreeInfo_ID = models.ForeignKey(TreeInfo)
     
 class Park(models.Model):
     ParkID = models.IntegerField(blank=True, null=True)
@@ -72,6 +73,13 @@ class Photo(models.Model):
     approved = models.BooleanField(default=False)
     picture = models.ImageField(upload_to='tree_photo', blank=True)
     caption = models.TextField(blank=True)
+    
+class TreeInfo(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=90, blank=True, null=True)
+    habitat = models.CharField(max_length=90, blank=True, null=True)
+    uses = models.CharField(blank=True, null=True)
+    description = models.CharField(blank=True, null=True)
     
     
 
