@@ -15,9 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from hug_project_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index)
-]
+    path('', views.index, name='index'),
+    path('about/', views.about, name='about'),
+    path('tree_detail/', views.tree_detail, name='tree_detail'),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+# WHen deploying need to chang static stuff see here for info:
+# https://docs.djangoproject.com/en/2.0/howto/static-files/deployment/

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--favicon TODO-->
+    <link rel="icon" href="{% static 'images/tree.png' %}">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!--scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- <script src="{% static 'scripts/hug.js' %}" type="text/javascript"></script> -->
+
+    <!--fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Mate|Montserrat|Old+Standard+TT" rel="stylesheet">
+
+    <!--stylesheets -->
+    <link href="{% static 'css/header.css' %}" rel="stylesheet">
+    <link href="{% static 'css/hug.css' %}" rel="stylesheet">
+    <link href="{% static 'css/modal.css' %}" rel="stylesheet">
+    <link href="{% static 'css/navbar.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+<header><a class="brand" href="/"><img alt="brand" src="{%  static 'images/logo.png' %}"></a></header>
+
+<!--Main Body of Text-->
+{% block body_block %}{% endblock %}
+
+<!-- Register Modal -->
+<div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span id="registerModalClose" class="close">&times;</span>
+        <div class="container-form">
+            <form id="registerForm">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="fname">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lname">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email">
+                <label for="password">Password</label>
+                <input type="text" id="password" name="password">
+                <label for="rpassword">Retype Password</label>
+                <input type="text" id="rpassword" name="rpassword">
+                <button id="registerButton" class="modalButton" type="submit" value="Submit">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+    <div id="loginModalContent" class="modal-content">
+        <span id="loginModalClose" class="close">&times;</span>
+        <div class="container-form">
+            <form>
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email">
+                <label for="password">Password</label>
+                <input type="text" id="password" name="password">
+                <button class="modalButton" type="submit" value="Submit">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- Thank you Modal -->
+<div id="thankYouModal" class="modal">
+    <div class="modal-content">
+        <span id="thankYouModalClose" class="close">&times;</span>
+        <div class="container-form">
+            <p class="thank-you">Thank you</br>for</br>registering</p>
+            <img class="thank-you" alt="heart" src="{%  static 'images/heart-full.png' %}">
+            <p class="thank-you">Now you can</br>save your</br>favorite</br>trees</p>
+        </div>
+    </div>
+</div>
+
+
+<footer><p class="copyright">© 2018 Alexis Jensen and Curtis Moody</p></footer>
+
+<!--Navbar -->
+<nav class="navbar">
+    <div class="navlinks">
+        <a href="{% url 'about' %}">About</a>
+        <!--Remove link after speech bubble with link implemented from map icon -->
+        <a href="{% url 'tree_detail' %}">Tree Detail</a>
+        {#        Uncomment once implemention cpmplete#}
+        {#                              {% if user.is_authenticated %}#}
+        {#                                    <li><a href="{% url 'favourites' %}" class="fav">my favourites</a></li>#}
+        {#                                    <li><a href="{% url 'logout' %}">logout</a></li>#}
+        {##}
+        {##}
+        {#                                {% else %}#}
+        {#                                    <li><a href="{% url 'register' %}">register</a></li>#}
+        {#                                    <li><a href="{% url 'login' %}">login</a></li>#}
+        {#                                {% endif %}#}
+
+        <!-- Real links place up above after it is working -->
+        <a id="registerLink" href="/">register</a>
+        <a id="loginLink" href="/">login</a>
+    </div>
+</nav>
+
+
+<!-- Modal Scripts -->
+<script>
+
+    // Variables for modals
+    var registerLink = document.getElementById("registerLink");
+    var registerModal = document.getElementById('registerModal');
+    var registerButton = document.getElementById('registerButton');
+
+    var loginLink = document.getElementById("loginLink");
+    var loginModal = document.getElementById('loginModal');
+    var loginModalContent = document.getElementById('loginModalContent');
+
+
+    // When the user clicks register link, open register modal
+    registerLink.onclick = function(event) {
+        event.preventDefault();
+        if (loginModal.style.display === "block"){loginModal.style.display = "none";}
+        registerModal.style.display = "block";
+    }
+
+    // When the user clicks login link, open login modal
+    loginLink.onclick = function(event) {
+        event.preventDefault();
+        if (registerModal.style.display === "block"){registerModal.style.display = "none";}
+        loginModal.style.display = "block";
+        loginModalContent.style.height = "360px";
+    }
+
+    //Close Button functionality
+    // Get the <span> element that closes the modal
+    var registerX = document.getElementById('registerModalClose');
+    var loginX = document.getElementById('loginModalClose');
+    var thankYouX = document.getElementById('thankYouModalClose');
+
+    // When the user clicks on (x), close the modal
+    registerX.onclick = function() {
+        registerModal.style.display = "none"
+    }
+
+    loginX.onclick = function() {
+        loginModal.style.display = "none"
+    }
+
+    thankYouX.onclick = function() {
+        thankYouModal.style.display = "none"
+    }
+
+
+    var thankYouModal = document.getElementById('thankYouModal');
+    var registerForm = document.getElementById('#registerForm');
+    // TODO: Can't get thank you modal to stay - I think the form submit is redirecting/refreshing the page
+    registerButton.onclick = function() {
+        $(document).ready(function(){
+            $('#thankYouModal').show();
+        });
+    };
+
+</script>
+
+</body>
+</html>
