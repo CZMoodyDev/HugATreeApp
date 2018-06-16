@@ -24,10 +24,6 @@
 <meta name="msapplication-TileImage" content="{% static 'images/ms-icon-144x144.png' %}">
 <meta name="theme-color" content="#ffffff">
 
-
-
-
-
     <title>{% block title %}{% endblock %}</title>
 
     <!--scripts -->
@@ -41,9 +37,9 @@
 
     <!--stylesheets -->
     <link href="{% static 'css/header.css' %}" rel="stylesheet">
-    <link href="{% static 'css/hug.css' %}" rel="stylesheet">
     <link href="{% static 'css/modal.css' %}" rel="stylesheet">
     <link href="{% static 'css/navbar.css' %}" rel="stylesheet">
+    {% block styles %}{% endblock %}
 
 </head>
 

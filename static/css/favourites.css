@@ -1,0 +1,8 @@
+body {
+    background: url("/static/images/favourites-wallpaper.png");
+    background-color: #FFFFFF;
+    font-family: 'Mate', serif;
+    font-size: 13px;
+    line-height: 22px;
+    width: 100%;
+}

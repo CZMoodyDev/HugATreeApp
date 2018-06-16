@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>{% extends 'base.html' %}
+{% extends 'base.html' %}
 {% load static %}
-
 <!-- Tree detail page masquerading as about till urls all hooked up -->
 <!-- Uncomment when models implemented and erase dummy one -->
 {#{% block title %}tree no. {{treeId}}{% endblock %}#}
 {% block title %}tree no. 234{% endblock %}
-
+{% block styles %}<link href="{% static 'css/hug.css' %}" rel="stylesheet">{% endblock %}
 {% block body_block %}
     <div id="tree-detail-green-box"></div>
     <div class="row1-treeDetail">
