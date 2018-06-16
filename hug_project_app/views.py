@@ -29,3 +29,6 @@ def about(request):
 
 def tree_detail(request):
     return render(request, 'tree_detail.html')
+
+def favourites(request):
+    return render(request, 'favourites.html')
