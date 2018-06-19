@@ -16,6 +16,7 @@ body {
     margin-bottom: 20px;
 }
 
+
 .row2-favourites {
     -webkit-align-items: center;
     align-items: center;
@@ -33,6 +34,7 @@ body {
     padding-right: 36px;
     width: 66vw;
 }
+@media screen and (max-width: 500px){.favourites-title {height: 40px;}}
 
 .favourites-heading {
     color: #DD5448;
@@ -44,11 +46,12 @@ body {
     text-align: left;
 }
 
+@media screen and (max-width: 500px){.favourites-heading {font-size: 20px;}}
+
 #pink-favourites-box {
     background-color: #FFFCF9;
     height: 30px;
     width: 210px;
-
 }
 
 .favourites-container {
@@ -64,13 +67,9 @@ body {
     width: 70vw;
 }
 
-@media screen and (max-width: 800px) {
-    .favourites-container {width: 80vw;}
-}
-
-@media screen and (max-width: 600px) {
-    .favourites-container {padding: 10px 0 20px 0; width: 94vw;}
-}
+@media screen and (max-width: 800px) {.favourites-container {width: 80vw;}}
+@media screen and (max-width: 600px) {.favourites-container {padding: 10px 0 20px 0; width: 94vw;}}
+@media screen and (max-width: 500px) {.favourites-container {margin-bottom: 20px;}}
 
 .favourite-tree-image {
     height: 130px;
@@ -78,14 +77,9 @@ body {
     object-fit: contain;
     width: 180px;
 }
-@media screen and (max-width: 800px) {
-    .favourite-tree-image {height: 100px; margin: 0 20px; width: 138px;}
-}
-
-@media screen and (max-width: 600px) {
-    .favourite-tree-image {height: 70px; width: 97px;}
-}
-
+@media screen and (max-width: 800px) {.favourite-tree-image {height: 100px; margin: 0 20px; width: 138px;}}
+@media screen and (max-width: 600px) {.favourite-tree-image {height: 70px; width: 97px;}}
+@media screen and (max-width: 500px) {.favourite-tree-image {height: 50px; margin: 0 10px; width: 69px;}}
 
 .favourite-text {
     margin-bottom: 20px;
@@ -101,19 +95,24 @@ body {
     margin-bottom: -10px;
     text-align: left;
 }
-@media screen and (max-width: 800px) {
-    .favourite-paragraph{font-size: 14px;}
-
-}
+@media screen and (max-width: 800px) {.favourite-paragraph{font-size: 14px;}}
+@media screen and (max-width: 500px) {.favourite-paragraph{font-size: 12px;}}
 
 h3.favourite-paragraph {
     font-family: OldStandardTT, Georgia, Serif;
     font-weight: bold;
-    line-height: 1.5em;
 }
+@media screen and (max-width: 500px) {h3.favourite-paragraph{font-size: 16px;}}
 
-
-
+.hug-type {
+    color: #5A634D;
+    font-family: Mate-Regular, Georgia, Serif;
+    font-size: 13px;
+    font-weight: normal;
+     letter-spacing: 1.29px;
+    margin-bottom: -2px;
+}
+@media screen and (max-width: 500px) {.hug-type{font-size: 11px;}}
 /****Remove Favourite Button ****/
 .remove-favourite {
     color: #5A634D;
@@ -122,14 +121,11 @@ h3.favourite-paragraph {
     margin-right: 40px;
     text-align: right;
 }
-
 .remove-favourite:hover,
 .remove-favourite:focus {
     color: #3f9279;
     text-decoration: none;
     cursor: pointer;
 }
-
-@media screen and (max-width: 800px) {
-    .remove-favourite {font-size: 30px;}
-}
+@media screen and (max-width: 800px) {.remove-favourite {font-size: 30px;}}
+@media screen and (max-width: 500px){.remove-favourite {margin-right: 16px;}}
