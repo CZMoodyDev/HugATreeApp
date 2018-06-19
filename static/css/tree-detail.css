@@ -1,0 +1,187 @@
+#tree-detail-green-box {
+    background-color: #F5F7F3;
+    display: block;
+    left: 0;
+    height: 650px;
+    opacity: 0.5;
+    position: absolute;
+    top: 138px;
+    width: 174px;
+    z-index: -2;
+}
+
+#tree-detail-pink-box {
+    background-color: #FE7460;
+    display: block;
+    height: 344px;
+    margin-left: 160px;
+    margin-top: 20px;
+    opacity: 0.1;
+    width: 664px;
+    z-index: -30;
+}
+@media screen and (max-width: 768px) {#tree-detail-pink-box {display: none;}}
+
+
+/*********************************** Page Structure *****/
+.row1-treeDetail {
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    margin-bottom: 150px;
+}
+@media screen and (max-width: 1000px) {
+    .row1-treeDetail {
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        margin-bottom: 40px;
+    }
+}
+@media screen and (max-width: 500px) {.row1-treeDetail {margin-bottom: 0;}}
+
+
+.row2-treeDetail {
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+    margin-top: -370px;
+    margin-bottom: 150px;
+}
+@media screen and (max-width: 1000px) {.row2-treeDetail {margin-bottom: 50px;}}
+@media screen and (max-width: 768px) {.row2-treeDetail {margin-top: 20px;}}
+
+.box-treeDetail {
+    position: relative;
+    width: 48vw;
+}
+@media screen and (max-width: 1000px) {.box-treeDetail {margin-bottom: 60px; width: 100vw;}}
+
+
+
+/*********************************** Map *****/
+#tree-detail-map {
+    border: 2px solid #B2D6B6;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    height: 408px;
+    margin: -540px auto 0 auto;
+    width: 472px;
+    z-index:0;
+}
+@media screen and (max-width: 1000px) {#tree-detail-map {margin-top: 0;}}
+@media screen and (max-width: 768px) {#tree-detail-map {height: 310px; width: 360px;}}
+@media screen and (max-width: 500px) {#tree-detail-map {height: 258px; margin-top: 30px; width: 300px;}}
+
+/*********************************** Tree Info Box *****/
+.tree-info-container {
+    background-color: #F0F9F7;
+    border: 2px solid #F0F9F7;
+    -webkit-border-radius: 32px;
+    border-radius: 32px;
+    float: right;
+    padding: 30px 20px 40px 0;
+    right: 0;
+    top: -220px;
+    width: 430px;
+}
+@media screen and (max-width: 1000px) {.tree-info-container {float: none; margin: 0 auto;}}
+@media screen and (max-width: 500px) {.tree-info-container {padding-right: 20px; width: 280px;}}
+
+.tree-detail-heart {
+    display: block;
+    float: right;
+    height: auto;
+    margin-right: 10px;
+    margin-top: -5px;
+    right: 10px;
+    width: 46px;
+}
+
+.tree-info-line {
+    border: 1px solid transparent;
+    border-bottom-color: #5A634D;
+    margin: -8px 0 16px 8px;
+    width: 292px;
+}
+@media screen and (max-width: 500px) {.tree-info-line {width: 260px;}}
+
+p.shortAnswer {
+    color: #5A634D;
+    font-family: Mate-Regular, Georgia, Serif;
+    font-size: 18px;
+    letter-spacing: 2.57px;
+    margin-left: 12px;
+    margin-top: 8px;
+    text-align: left;
+}
+
+p.longAnswer {
+    color: #5A634D;
+    font-family: Mate-Regular, Georgia, Serif;
+    font-size: 13px;
+    letter-spacing: 1.47px;
+    line-height: 17px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+h3.tree-type-more-info {
+    color: #5A634D;
+    font-family: OldStandardTT-Bold, Georgia, Serif;
+    font-size: 14px;
+    letter-spacing: 0.7px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+/*********************************** Photos *****/
+.tree-photo {
+    height: auto;
+    -webkit-border-radius: 13px;
+    border-radius: 13px;
+    margin: 30px;
+    width: 250px;
+    z-index: 100;
+}
+@media screen and (max-width: 500px) {.tree-photo {margin: 10px;}}
+#orange-box {
+    background-color: #EFCBB4;
+    height: 26px;
+    left: -30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 30px;
+    width: 122px;
+}
+
+.trees-title {
+    height: 60px;
+    margin-bottom: 40px;
+    position: relative;
+    width: 100%;
+}
+
+h1.photos-title {
+    color: #5A634D;
+    font-family: OldStandardTT, Georgia, Serif;
+    font-size: 30px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+@media screen and (max-width: 456px) {
+    h1.photos-title {font-size: 24px;}
+}
