@@ -28,23 +28,7 @@
 }
 @media screen and (max-width: 600px) {.modal-content{margin: 0 auto 180px auto; padding: 10px 20px; width: 250px;}}
 
-p.thank-you {
-    color: rgba(90, 99, 77, 0.90);
-    font-family: OldStandardTT-Italic, Georgia, Serif;
-    font-style: italic;
-    font-size: 22px;
-    letter-spacing: 2px;
-    line-height: 1.3em;
-    text-align: center;
-}
-
-img.thank-you {
-    display: block;
-    height: auto;
-    margin: 20px auto 20px auto;
-    width: 36px;
-}
-
+/* Form Style for Register and Login */
 .container-form {
     margin-left: auto;
     margin-right: auto;
@@ -104,7 +88,25 @@ button.modalButton:hover {
     color: #FFFFFF;
 }
 
-/* The Close Button - X */
+/* Thank you Modal */
+p.thank-you {
+    color: rgba(90, 99, 77, 0.90);
+    font-family: OldStandardTT-Italic, Georgia, Serif;
+    font-style: italic;
+    font-size: 22px;
+    letter-spacing: 2px;
+    line-height: 1.3em;
+    text-align: center;
+}
+
+img.thank-you {
+    display: block;
+    height: auto;
+    margin: 20px auto 20px auto;
+    width: 36px;
+}
+
+/* The Close Button on all modals - X */
 .close {
     color: #5A634D;
     float: right;
