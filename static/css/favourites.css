@@ -16,7 +16,6 @@ body {
     margin-bottom: 20px;
 }
 
-
 .row2-favourites {
     -webkit-align-items: center;
     align-items: center;
@@ -45,7 +44,6 @@ body {
     margin-left: 20px;
     text-align: left;
 }
-
 @media screen and (max-width: 500px){.favourites-heading {font-size: 20px;}}
 
 #pink-favourites-box {
@@ -66,7 +64,6 @@ body {
     padding: 30px 0 40px 0;
     width: 70vw;
 }
-
 @media screen and (max-width: 800px) {.favourites-container {width: 80vw;}}
 @media screen and (max-width: 600px) {.favourites-container {padding: 10px 0 20px 0; width: 94vw;}}
 @media screen and (max-width: 500px) {.favourites-container {margin-bottom: 20px;}}

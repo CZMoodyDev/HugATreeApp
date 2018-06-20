@@ -1,98 +1,103 @@
 
 /* The Modal (background) */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 100;
-    padding-top: 80px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
     background-color: rgba(255,255,255, 0.9);
+    display: none;
+    height: 100%;
+    left: 0;
+    padding-top: 80px;
+    position: fixed;
+    top: 0;
+    overflow: auto;
+    width: 100%;
+    z-index: 100;
+
 }
 
 /* Modal Content */
 .modal-content {
     background-color: #F0F9F7;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 200px;
-    padding: 20px;
+    border: 2px solid #F0F9F7;
     -webkit-border-radius: 30px;
     border-radius: 30px;
-    border: 2px solid #F0F9F7;
+    margin: 0 auto 200px auto;
+    padding: 20px;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll; /* has to be scroll, not auto */
     width: 392px;
-    height: 700px;
 }
+@media screen and (max-width: 600px) {.modal-content{margin: 0 auto 180px auto; padding: 10px 20px; width: 250px;}}
 
 p.thank-you {
+    color: rgba(90, 99, 77, 0.90);
     font-family: OldStandardTT-Italic, Georgia, Serif;
     font-style: italic;
-    font-size: 32px;
-    letter-spacing: 3px;
-    line-height: 1.5em;
-    color: rgba(90, 99, 77, 0.90);
+    font-size: 22px;
+    letter-spacing: 2px;
+    line-height: 1.3em;
     text-align: center;
 }
 
 img.thank-you {
-    width: 40px;
-    height: auto;
     display: block;
+    height: auto;
     margin: 20px auto 20px auto;
+    width: 36px;
 }
 
 .container-form {
-    position: relative;
-    padding-top: 40px;
-    width: 286px;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    position: relative;
+    width: 286px;
 }
+@media screen and (max-width: 600px) {.container-form {width: 246px;}}
 
 label {
-    font-family: Montserrat, sans-serif;
     color: #5A634D;
+    font-family: Montserrat, sans-serif;
     font-size: 10px;
     letter-spacing: 1.43px;
     text-transform: uppercase;
 }
+@media screen and (max-width: 600px) {label {left: -22px;}}
 
 input[type=text] {
-    width: 100%;
-    padding: 14px 0px;
-    margin: 16px 0;
-    box-sizing: border-box;
+    background-color: #F0F9F7;
     border: none;
     border-bottom: 1px solid rgba(90, 99, 77, 0.60);
-    background-color: #F0F9F7;
+    box-sizing: border-box;
+    color: #5A634D;
     font-family: 'Mate', serif;
-    letter-spacing: 2.57px;
     font-size: 17px;
-    color: #979797;
+    letter-spacing: 2.57px;
+    margin: 16px 0;
+    padding: 14px 0px;
+    width: 100%;
 }
-
+@media screen and (max-width: 600px) {input[type=text]{margin: 12px 0; padding: 10px 0px;}}
 
 input:focus {
     outline: none;
 }
 
 button.modalButton {
-    width: 264px;
-    height: 50px;
-    margin-top: 44px;
-    margin-left: 10px;
     background-color: #FFFFFF;
     border: 1px solid rgba(90, 99, 77, 0.60);
-    font-family: Montserrat, sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 2px;
     color: #FE7460;
+    height: 50px;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 44px;
+    margin-left: 10px;
+    text-transform: uppercase;
+    width: 264px;
 }
+@media screen and (max-width: 600px) {button.modalButton {width: 244px; margin-left: 0;}}
 
 button.modalButton:hover {
     background-color: #FE7460;
@@ -102,23 +107,15 @@ button.modalButton:hover {
 /* The Close Button - X */
 .close {
     color: #5A634D;
+    float: right;
     font-family: Times, sans-serif;
     font-size: 30px;
-    float: right;
     margin-right: 10px;
 }
 
 .close:hover,
 .close:focus {
-   color: #3f9279;
-    text-decoration: none;
+    color: #3f9279;
     cursor: pointer;
-}
-
-
-@media screen and (max-width: 600px) {
-    .modal-content{width: 300px; }
-    .container-form {width: 246px;}
-    button.modalButton {width: 244px; margin-left: 0;}
-    label {left: -22px;}
+    text-decoration: none;
 }
