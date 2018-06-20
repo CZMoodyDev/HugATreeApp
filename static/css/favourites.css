@@ -106,10 +106,11 @@ h3.favourite-paragraph {
     font-family: Mate-Regular, Georgia, Serif;
     font-size: 13px;
     font-weight: normal;
-     letter-spacing: 1.29px;
+    letter-spacing: 1.29px;
     margin-bottom: -2px;
 }
 @media screen and (max-width: 500px) {.hug-type{font-size: 11px;}}
+
 /****Remove Favourite Button ****/
 .remove-favourite {
     color: #5A634D;
@@ -126,3 +127,107 @@ h3.favourite-paragraph {
 }
 @media screen and (max-width: 800px) {.remove-favourite {font-size: 30px;}}
 @media screen and (max-width: 500px){.remove-favourite {margin-right: 16px;}}
+
+
+/****************Remove Tree Dialogue Widget Styling *********************/
+.ui-widget.remove-tree-dialog {
+    color: #5A634D;
+    display: block;
+    font-family: Mate-Regular, Georgia, Serif;
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: 0.93px;
+    line-height: 27px;
+    text-align: center;
+    width: 100%;
+}
+@media screen and (max-width: 500px){.ui-widget.remove-tree-dialog{font-size: 14px; line-height: 17px;}}
+
+.ui-widget-content.remove-tree-dialog {
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    color: #5A634D;
+}
+
+.ui-dialog.remove-tree-dialog {
+    left: 0;
+    outline: 0 none;
+    padding: 0 !important;
+    position: absolute;
+    top: 0;
+}
+
+.ui-dialog.remove-tree-dialog .ui-dialog-content {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    overflow: auto;
+    position: relative;
+    margin: 0;
+    padding-top: 20px;
+}
+
+.ui-dialog.remove-tree-dialog .ui-widget-header {
+    display: none;
+}
+
+.ui-dialog.remove-tree-dialog .ui-dialog-titlebar {
+    display: none;
+}
+
+.remove-tree-title {
+    color: #5A634D;
+    font-family: OldStandardTT, Georgia, Serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 2px;
+    line-height: 26px;
+}
+@media screen and (max-width: 500px){.remove-tree-title{font-size: 14px;}}
+
+.broken-heart {
+    height: auto;
+    width: 80px;
+}
+@media screen and (max-width: 500px){.broken-heart{width: 40px;}}
+
+/*** Buttons on Dialogue Widget ****/
+.ui-dialog .ui-dialog-buttonpane {
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    border-width: 0 0 0 0;
+    margin-top: .5em;
+    padding: .3em 1em .5em .4em;
+    display: flex;
+    justify-content: space-around;
+}
+
+.ui-dialog .ui-dialog-buttonpane button {
+    margin: 0 2em 1em 2em;
+}
+
+.ui-dialog-buttonpane button, .ui-button:focus {
+    background-color: #FFFFFF;
+    background-image: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 2px solid #5A634D;;
+    color: #5A634D;
+    cursor: pointer;
+    font-family: Mate-Regular, Georgia, Serif;
+    font-size: 18px;
+    font-weight: 700;
+    outline: 0;
+    width: 100px;
+}
+@media screen and (max-width: 500px){.ui-dialog-buttonpane button, .ui-button:focus, .ui-button:hover, .ui-button:active {font-size: 14px; width: 70px;}}
+
+
+.ui-button:hover, .ui-button:active {
+    background-color: #FE7460;
+    background-image: none;
+    border: 2px solid #FE7460;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #FFFFFF;
+    outline: 0;
+}

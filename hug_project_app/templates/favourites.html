@@ -43,4 +43,55 @@
         </div>
     </div>
 
+    <!---- Remove Favourite Dialogue Widget ----->
+    <div id="remove-favourite-dialogue">
+        <p class="remove-text">Are you sure you want to remove</p>
+        <p class="remove-tree-title">Tree ID 234</p>
+        <p class="remove-text">from your favourites?</p>
+        <img class="broken-heart" src="{% static 'images/heart-broken.png' %}">
+    </div>
+
+    <script>
+
+        //Functionality to open dialogue widget when you click on favourite's X
+        $( ".remove-favourite" ).click(function( event ) {
+            $( "#remove-favourite-dialogue" ).dialog( "open" );
+            event.preventDefault();
+        });
+
+
+        //Dialogue widget styling and button functionality
+        var screenWidth, dialogWidth;
+        screenWidth = window.screen.width;
+
+        if ( screenWidth < 500 ) {
+            dialogWidth = screenWidth * .85;
+        } else {
+            dialogWidth = 400;
+        }
+
+        $( "#remove-favourite-dialogue" ).dialog({
+            autoOpen: false,
+            width: dialogWidth,
+            modal: true,
+            dialogClass: 'no-close remove-tree-dialog',
+            buttons: [
+                {
+                    text: "Yes",
+                    class: "remove-button",
+                    click: function() {
+                        $( this ).dialog( "close" );
+                    }
+                },
+                {
+                    text: "No",
+                    class: "remove-button",
+                    click: function() {
+                        $( this ).dialog( "close" );
+                    }
+                }
+            ]
+        });
+
+    </script>
 {% endblock %}
