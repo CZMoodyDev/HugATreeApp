@@ -6,8 +6,8 @@
 {% block body_block %}
     <div class="row1-favourites">
         <div class="favourites-title">
-            <div id="pink-favourites-box">
-                <h1 class="favourites-heading">Favourites</h1>
+            <div id="pink-favourites-box-behind-title">
+                <h1 class="favourites-title-text">Favourites</h1>
             </div>
         </div>
     </div>
@@ -67,7 +67,7 @@
         if ( screenWidth < 500 ) {
             dialogWidth = screenWidth * .85;
         } else {
-            dialogWidth = 400;
+            dialogWidth = 380;
         }
 
         $( "#remove-favourite-dialogue" ).dialog({

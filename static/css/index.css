@@ -1,24 +1,10 @@
-/**
-font-family: 'Montserrat', sans-serif;
-font-family: 'Old Standard TT', serif;
-font-family: 'Mate', serif;
-
- **/
-
 body {
-    font-family: 'Mate', serif;
-    font-size: 13px;
-    line-height: 22px;
     background: url("/static/images/confetti-wallpaper.png");
     background-color: #FFFFFF;
     width: 100%;
 }
 
-/******* Index Page **********************************/
-
-
 /**** Background Box Decorations ****/
-
 #big-green-box {
     background-color: #F5F7F3;
     display: block;
@@ -30,19 +16,14 @@ body {
     width: 246px;
     z-index: -2;
 }
-
 @media screen and (max-width: 768px) {
     #big-green-box {
         top: 658px;
         width: 46px;
         z-index: 0;
-    }}
-
-@media screen and (max-width: 600px) {
-    #big-green-box {top: 1000px; width: 40px;}
+    }
 }
-
-
+@media screen and (max-width: 600px) {#big-green-box {top: 1000px; width: 40px;}}
 
 #big-pink-box {
     background-color: #FFFCF9;
@@ -54,11 +35,7 @@ body {
     width: 463px;
     z-index: -2;
 }
-
-@media screen and (max-width: 1024px) {
-    #big-pink-box {height: 580px;}
-}
-
+@media screen and (max-width: 1024px) {#big-pink-box {height: 580px;}}
 @media screen and (max-width: 768px) {
     #big-pink-box {
         height: 408px;
@@ -66,17 +43,11 @@ body {
         width: 276px;
     }
 }
-
-@media screen and (max-width: 600px) {
-    #big-pink-box {width: 220px;}
-}
-
-@media screen and (max-width: 456px) {
-    #big-pink-box {width: 160px;}
-}
+@media screen and (max-width: 600px) {#big-pink-box {width: 220px;}}
+@media screen and (max-width: 456px) {#big-pink-box {width: 160px;}}
 
 
-/**** Page structure ****/
+/**** Page Structure ****/
 
 .row1 {
     align-items: center;
@@ -92,17 +63,12 @@ body {
 
 @media screen and (max-width: 768px) {
     .row1 {
-        align-items: center;
-        display: flex;
-        display: -webkit-flex;
         flex-direction: column-reverse;
         -webkit-flex-direction: column-reverse;
         margin-bottom: 100px;
     }
 }
-@media screen and (max-width: 320px) {
-    .row1 {margin-bottom: 80px;}
-}
+@media screen and (max-width: 320px) {.row1 {margin-bottom: 80px;}}
 
 .row2 {
     align-items: center;
@@ -121,9 +87,6 @@ body {
 
 @media screen and (max-width: 768px) {
     .row2 {
-        align-items: center;
-        display: flex;
-        display: -webkit-flex;
         flex-direction: column;
         -webkit-flex-direction: column;
     }
@@ -132,19 +95,12 @@ body {
 .box {
     width: 48vw;
 }
-
+@media screen and (max-width: 768px) {.box {width: 100vw;}}
 .box2 {
     width: 25vw;
 }
-
-@media screen and (max-width: 768px) {
-    .box {width: 100vw;}
-    .box2 {margin-bottom: 50px; width: 100vw;}
-}
-
-@media screen and (max-width: 600px) {
-    .box2 {margin-bottom: 30px;}
-}
+@media screen and (max-width: 768px) {.box2 {margin-bottom: 50px; width: 100vw;}}
+@media screen and (max-width: 600px) {.box2 {margin-bottom: 30px;}}
 
 
 
@@ -162,19 +118,9 @@ body {
     text-align: center;
     width: 332px;
 }
-
-@media screen and (max-width: 1024px) {
-    .explore {font-size: 28px;}
-}
-
-@media screen and (max-width: 600px) {
-    .explore {font-size: 22px; width: 300px;}
-}
-
-@media screen and (max-width: 456px) {
-    .explore {font-size: 18px; width: 280px;}
-}
-
+@media screen and (max-width: 1024px) {.explore {font-size: 28px;}}
+@media screen and (max-width: 600px) {.explore {font-size: 22px; width: 300px;}}
+@media screen and (max-width: 456px) {.explore {font-size: 18px; width: 280px;}}
 
 
 /**** Select (dropdowns) Styling (taken from w3) ****/
@@ -257,7 +203,7 @@ select:focus option.holder {
 
 /*  End of Select Styling  */
 
-/****** Map *****/
+/************ Map ********************/
 #map {
     border: 2px solid #B2D6B6;
     border-radius: 30px;
@@ -268,43 +214,14 @@ select:focus option.holder {
     width: 660px;
     z-index:0;
 }
-
-@media screen and (max-width: 1440px) {
-    #map {width: 560px;}}
-
-@media screen and (max-width: 1244px) {
-    #map {width: 460px;}
-}
-
-@media screen and (max-width: 1024px) {
-    #map {height: 440px; width: 420px;}
-}
-
-@media screen and (max-width: 980px) {
-    #map {height: 390px; width: 370px;}
-}
-
-@media screen and (max-width: 768px) {
-    #map {height: 472px; width: 560px;}
-}
-
-@media screen and (max-width: 600px) {
-    #map {height: 338px; width: 400px;}  }
-
-
-@media screen and (max-width: 456px) {
-    #map {
-        margin-top: 22px;
-        height: 254px;
-        width: 300px;}
-}
-
-
-@media screen and (max-width: 320px) {
-    #map {
-        height: 220px;
-        width: 260px;}
-}
+@media screen and (max-width: 1440px) {#map {width: 560px;}}
+@media screen and (max-width: 1244px) {#map {width: 460px;}}
+@media screen and (max-width: 1024px) {#map {height: 440px; width: 420px;}}
+@media screen and (max-width: 980px) {#map {height: 390px; width: 370px;}}
+@media screen and (max-width: 768px) {#map {height: 472px; width: 560px;}}
+@media screen and (max-width: 600px) {#map {height: 338px; width: 400px;}}
+@media screen and (max-width: 456px) {#map {margin-top: 22px; height: 254px;width: 300px;}}
+@media screen and (max-width: 320px) {#map {height: 220px; width: 260px;}}
 
 /****  Bottom of the Page - The Trees ****/
 .trees-title {
@@ -315,18 +232,16 @@ select:focus option.holder {
 }
 
 h1.trees-title {
-    font-family: OldStandardTT, Georgia, Serif;
-    font-weight: 300;
-    font-size: 30px;
-    letter-spacing: 2px;
     color: #5A634D;
-    margin-right: auto;
+    font-family: OldStandardTT, Georgia, Serif;
+    font-size: 30px;
+    font-weight: 300;
+    letter-spacing: 2px;
     margin-left: auto;
+    margin-right: auto;
     text-align: center;
 }
-@media screen and (max-width: 456px) {
-   h1.trees-title {font-size: 24px;}
-}
+@media screen and (max-width: 456px) {h1.trees-title {font-size: 24px;}}
 
 #trees-pink-box {
     background-color: #FFD7D2;
@@ -355,20 +270,8 @@ p.trees {
     text-align: center;
     width: 250px;
 }
-
-@media screen and (max-width: 1244px) {
-    p.trees {width: 200px;}
-}
-
-@media screen and (max-width: 1024px) {
-    p.trees {width: 160px;}
-}
-
-@media screen and (max-width: 768px) {
-    p.trees {width: 300px;}
-}
-
-@media screen and (max-width: 456px) {
-    p.trees {width: 240px;}
-}
+@media screen and (max-width: 1244px) {p.trees {width: 200px;}}
+@media screen and (max-width: 1024px) {p.trees {width: 160px;}}
+@media screen and (max-width: 768px) {p.trees {width: 300px;}}
+@media screen and (max-width: 456px) {p.trees {width: 240px;}}
 

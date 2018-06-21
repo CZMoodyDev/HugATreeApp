@@ -4,6 +4,7 @@ body {
     width: 100%;
 }
 
+/***** Page Structure - row 1: title, row 2 : list of favourites *****/
 .row1-favourites {
     display: -webkit-flex;
     display: flex;
@@ -35,7 +36,7 @@ body {
 }
 @media screen and (max-width: 500px){.favourites-title {height: 40px;}}
 
-.favourites-heading {
+.favourites-title-text {
     color: #DD5448;
     font-family: OldStandardTT, Georgia, Serif;
     font-weight: 300;
@@ -44,9 +45,9 @@ body {
     margin-left: 20px;
     text-align: left;
 }
-@media screen and (max-width: 500px){.favourites-heading {font-size: 20px;}}
+@media screen and (max-width: 500px){.favourites-title-text {font-size: 20px;}}
 
-#pink-favourites-box {
+#pink-favourites-box-behind-title {
     background-color: #FFFCF9;
     height: 30px;
     width: 210px;
@@ -129,7 +130,7 @@ h3.favourite-paragraph {
 @media screen and (max-width: 500px){.remove-favourite {margin-right: 16px;}}
 
 
-/****************Remove Tree Dialogue Widget Styling *********************/
+/****************Remove Tree Dialogue Styling (JqueryUI)*********************/
 .ui-widget.remove-tree-dialog {
     color: #5A634D;
     display: block;
@@ -210,7 +211,7 @@ h3.favourite-paragraph {
     background-image: none;
     -webkit-box-shadow: none;
     box-shadow: none;
-    border: 2px solid #5A634D;;
+    border: 1px solid #5A634D;;
     color: #5A634D;
     cursor: pointer;
     font-family: Mate-Regular, Georgia, Serif;
@@ -225,7 +226,7 @@ h3.favourite-paragraph {
 .ui-button:hover, .ui-button:active {
     background-color: #FE7460;
     background-image: none;
-    border: 2px solid #FE7460;
+    border: 1px solid #FE7460;
     -webkit-box-shadow: none;
     box-shadow: none;
     color: #FFFFFF;
