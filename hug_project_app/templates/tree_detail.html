@@ -18,19 +18,22 @@
             <div class="tree-info-container">
                 <img id="heart" class="tree-detail-heart" src="{%  static 'images/heart-empty.png' %}" alt="heart">
                 <label>Tree ID</label>
-                <p class="shortAnswer">234</p>
+                <p class="shortAnswer">{{ tree_id }}</p>
                 <div class="tree-info-line"></div>
                 <label>Name</label>
-                <p class="shortAnswer">Maple Tree</p>
+                <p class="shortAnswer">{{ common_name|title }}</p>
                 <div class="tree-info-line"></div>
                 <label>Diameter</label>
-                <p class="shortAnswer">5 Inches</p>
+                <p class="shortAnswer">{{ diameter }} Inches</p>
                 <div class="tree-info-line"></div>
                 <label>Date Planted</label>
-                <p class="shortAnswer">May 23, 1997</p>
+                <p class="shortAnswer">{{ birthdate }}</p>
+                <div class="tree-info-line"></div>
+                <label>Address</label>
+                <p class="shortAnswer">{{ address|title }}</p>
                 <div class="tree-info-line"></div>
                 <label>Neighbourhood</label>
-                <p class="shortAnswer">Kitsilano</p>
+                <p class="shortAnswer">{{ neighbourhood|title }}</p>
                 <div class="tree-info-line"></div>
                 <h3 class="tree-type-more-info">More about Maple Trees</h3>
                 <label>Description</label>
