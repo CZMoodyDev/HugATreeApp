@@ -112,7 +112,7 @@
     border: 1px solid transparent;
     border-bottom-color: #5A634D;
     margin: -8px 0 16px 8px;
-    width: 292px;
+    width: 300px;
 }
 @media screen and (max-width: 500px) {.tree-info-line {width: 260px;}}
 
@@ -125,6 +125,7 @@ p.shortAnswer {
     margin-top: 8px;
     text-align: left;
 }
+@media screen and (max-width: 500px) {p.shortAnswer {font-size: 14px;}}
 
 p.longAnswer {
     color: #5A634D;
