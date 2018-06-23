@@ -37,34 +37,34 @@ def tree_detail(request):
         # How to handle try and excepts with three objects?
 
         # ********* Tree Info **********************************************
-        # tree = Tree.objects.get(id__exact=12)
-        # context_dict['tree_id'] = tree.TREE_ID
-        # context_dict['common_name'] = tree.COMMON_NAME
-        # context_dict['diameter'] = tree.DIAMETER
-        #
-        # # get and break date apart
-        # date = tree.DATE_PLANTED
-        # year = int(str(date)[:4])
-        # month = int(str(date)[4:6])
-        # day = int(str(date)[6:8])
-        #
-        # # get current date to find age of tree
-        # today = datetime.today()
-        # current_year = today.year
-        # age = current_year - year
-        #
-        # # get name of the month eg: December rather than 12
-        # month_name = calendar.month_name[month]
-        #
-        # # birthdate eg: December 12, 1979 (39 years old)
-        # context_dict['birthdate'] = month_name + ' ' + str(day) + ', ' + str(year) + ' (' + str(age) + ' years old)'
-        #
-        # # address eg: 2799 W 23rd Av
-        # address_number = tree.CIVIC_NUMBER
-        # street = tree.STD_STREET
-        # context_dict['address'] = str(address_number) + ' ' + street
-        #
-        # context_dict['neighbourhood'] = tree.NEIGHBOURHOOD_NAME
+        tree = Tree.objects.get(id__exact=12)
+        context_dict['tree_id'] = tree.TREE_ID
+        context_dict['common_name'] = tree.COMMON_NAME
+        context_dict['diameter'] = tree.DIAMETER
+
+        # get and break date apart
+        date = tree.DATE_PLANTED
+        year = int(str(date)[:4])
+        month = int(str(date)[4:6])
+        day = int(str(date)[6:8])
+
+        # get current date to find age of tree
+        today = datetime.today()
+        current_year = today.year
+        age = current_year - year
+
+        # get name of the month eg: December rather than 12
+        month_name = calendar.month_name[month]
+
+        # birthdate eg: December 12, 1979 (39 years old)
+        context_dict['birthdate'] = month_name + ' ' + str(day) + ', ' + str(year) + ' (' + str(age) + ' years old)'
+
+        # address eg: 2799 W 23rd Av
+        address_number = tree.CIVIC_NUMBER
+        street = tree.STD_STREET
+        context_dict['address'] = str(address_number) + ' ' + street
+
+        context_dict['neighbourhood'] = tree.NEIGHBOURHOOD_NAME
 
         # ********* FoodTree Info **********************************************
         # food = FoodTree.objects.get(id__exact=2)
@@ -80,15 +80,15 @@ def tree_detail(request):
         # context_dict['garden_neighbourhood'] = food.Neighbourhood
 
         # ********* Park Info **********************************************
-        park = Park.objects.get(id__exact=3)
-        context_dict['park_id'] = park.ParkID
-        context_dict['park_name'] = park.Name
-        # .normalize() strips trailing zeroes off 2.8900 becomes 2.89
-        context_dict['park_size'] = park.Hectare.normalize()
-        park_address_number = park.StreetNumber
-        park_street = park.StreetName
-        context_dict['park_address'] = str(park_address_number) + ' ' + park_street
-        context_dict['park_neighbourhood'] = park.NeighbourhoodName
+        # park = Park.objects.get(id__exact=3)
+        # context_dict['park_id'] = park.ParkID
+        # context_dict['park_name'] = park.Name
+        # # .normalize() strips trailing zeroes off 2.8900 becomes 2.89
+        # context_dict['park_size'] = park.Hectare.normalize()
+        # park_address_number = park.StreetNumber
+        # park_street = park.StreetName
+        # context_dict['park_address'] = str(park_address_number) + ' ' + park_street
+        # context_dict['park_neighbourhood'] = park.NeighbourhoodName
 
     except Tree.DoesNotExist:
         pass
