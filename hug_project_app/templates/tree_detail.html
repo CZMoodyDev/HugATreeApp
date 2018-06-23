@@ -1,51 +1,116 @@
 {% extends 'base.html' %}
 {% load static %}
-<!-- Tree detail page masquerading as about till urls all hooked up -->
-<!-- Uncomment when models implemented and erase dummy one -->
-{#{% block title %}tree no. {{treeId}}{% endblock %}#}
-{% block title %}tree no. 234{% endblock %}
+{% block title %}
+    {%  if tree_id is not None %}
+        tree no. {{ tree_id }}
+    {% endif %}
+
+    {%  if food_id is not None %}
+        fruit tree no. {{ food_id }}
+    {% endif %}
+
+    {%  if park_id is not None %}
+        park no. {{ park_id }}
+    {% endif %}
+{% endblock %}
 {% block styles %}<link href="{% static 'css/tree-detail.css' %}" rel="stylesheet">{% endblock %}
 {% block body_block %}
+
+
+    <!-- Tree Information Section -->
+
     <div id="tree-detail-green-box"></div>
     <div class="row1-treeDetail">
         <!-- Map Section -->
         <div class="box-treeDetail">
             <div id="tree-detail-map"></div>
         </div>
-
-        <!-- Tree Information Section -->
         <div class="box-treeDetail">
             <div class="tree-info-container">
                 <img id="heart" class="tree-detail-heart" src="{%  static 'images/heart-empty.png' %}" alt="heart">
-                <label>Tree ID</label>
-                <p class="shortAnswer">{{ tree_id }}</p>
-                <div class="tree-info-line"></div>
-                <label>Name</label>
-                <p class="shortAnswer">{{ common_name|title }}</p>
-                <div class="tree-info-line"></div>
-                <label>Diameter</label>
-                <p class="shortAnswer">{{ diameter }} Inches</p>
-                <div class="tree-info-line"></div>
-                <label>Date Planted</label>
-                <p class="shortAnswer">{{ birthdate }}</p>
-                <div class="tree-info-line"></div>
-                <label>Address</label>
-                <p class="shortAnswer">{{ address|title }}</p>
-                <div class="tree-info-line"></div>
-                <label>Neighbourhood</label>
-                <p class="shortAnswer">{{ neighbourhood|title }}</p>
-                <div class="tree-info-line"></div>
-                <h3 class="tree-type-more-info">More about Maple Trees</h3>
-                <label>Description</label>
-                <p class="longAnswer">A medium to large sized tree, reaching heights of 18 to 27 metres (60 to 90 ft) and exceptionally over 35 metres (115 feet). The leaves are usually 9 to 11 centimetres (3 1⁄2 to 4 1⁄4 in) long on a full grown tree. The trunk diameter can range from 46 to 76 cm (18 to 30 in), depending on the growing conditions</p>
-                <label>Habitat</label>
-                <p class="longAnswer">One of the most abundant and widespread trees in eastern North America. It can be found from the south of Newfoundland, Nova Scotia and southern Quebec to the south west of Ontario, extreme southeastern Manitoba and northern Minnesota; south to Wisconsin, Illinois, Missouri, eastern Oklahoma, and eastern Texas in its western range; and east to Florida. It has the largest continuous range along the North American Atlantic Coast of any tree that occurs in Florida. In total it ranges 2,600 km (1,600 mi) from north to south.[6] The species is native to all regions of the United States east of the 95th meridian.</p>
-                <label>Uses (other than hugging)</label>
-                <p class="longAnswer">In the lumber industry Acer rubrum is considered a "soft maple", a designation it shares, commercially, with silver maple  It is also used in the production of maple syrup. It is a medium quality firewood.</p>
+
+                {%  if tree_id is not None %}
+                    <label>Tree ID</label>
+                    <p class="shortAnswer">{{ tree_id }}</p>
+                    <div class="tree-info-line"></div>
+                    <label>Name</label>
+                    <p class="shortAnswer">{{ common_name|title }}</p>
+                    <div class="tree-info-line"></div>
+                    <label>Diameter</label>
+                    <p class="shortAnswer">{{ diameter }} Inches</p>
+                    <div class="tree-info-line"></div>
+                    <label>Date Planted</label>
+                    <p class="shortAnswer">{{ birthdate }}</p>
+                    <div class="tree-info-line"></div>
+                    <label>Address</label>
+                    <p class="shortAnswer">{{ address|title }}</p>
+                    <div class="tree-info-line"></div>
+                    <label>Neighbourhood</label>
+                    <p class="shortAnswer">{{ neighbourhood|title }}</p>
+                    <div class="tree-info-line"></div>
+                    <h3 class="tree-type-more-info">More about {{ common_name|title }} Trees</h3>
+                    <label>Description</label>
+                    <p class="longAnswer">A medium to large sized tree, reaching heights of 18 to 27 metres (60 to 90 ft) and exceptionally over 35 metres (115 feet). The leaves are usually 9 to 11 centimetres (3 1⁄2 to 4 1⁄4 in) long on a full grown tree. The trunk diameter can range from 46 to 76 cm (18 to 30 in), depending on the growing conditions</p>
+                    <label>Habitat</label>
+                    <p class="longAnswer">One of the most abundant and widespread trees in eastern North America. It can be found from the south of Newfoundland, Nova Scotia and southern Quebec to the south west of Ontario, extreme southeastern Manitoba and northern Minnesota; south to Wisconsin, Illinois, Missouri, eastern Oklahoma, and eastern Texas in its western range; and east to Florida. It has the largest continuous range along the North American Atlantic Coast of any tree that occurs in Florida. In total it ranges 2,600 km (1,600 mi) from north to south.[6] The species is native to all regions of the United States east of the 95th meridian.</p>
+                    <label>Uses (other than hugging)</label>
+                    <p class="longAnswer">In the lumber industry Acer rubrum is considered a "soft maple", a designation it shares, commercially, with silver maple  It is also used in the production of maple syrup. It is a medium quality firewood.</p>
+                {% endif %}
+
+                <!--Food Tree Information Section -->
+                {%  if food_id is not None %}
+                    <label>Fruit Trees ID</label>
+                    <p class="shortAnswer">{{ food_id }}</p>
+                    <div class="tree-info-line"></div>
+                    <label>Garden Name</label>
+                    <p class="shortAnswer">{{ garden_name|title }}</p>
+                    <div class="tree-info-line"></div>
+                    {%  if year_created %}
+                        <label>Creation Date</label>
+                        <p class="shortAnswer">{{ year_created }}</p>
+                        <div class="tree-info-line"></div>
+                    {% endif %}
+                    {%  if number_of_trees %}
+                        <label>Number of Fruit Trees</label>
+                        <p class="shortAnswer">{{ number_of_trees }}</p>
+                        <div class="tree-info-line"></div>
+                    {% endif %}
+                    {%  if food_varieties %}
+                        <label>Variety of Trees</label>
+                        <p class="shortAnswer">{{ food_varieties|title }}</p>
+                        <div class="tree-info-line"></div>
+                    {% endif %}
+                    <label>Address</label>
+                    <p class="shortAnswer">{{ garden_address }} </p>
+                    <div class="tree-info-line"></div>
+                    <!--Uncomment after neighbourhood field has been added to Foodtree model and data added to foodtree dataset -->
+{#                    <label>Neighbourhood</label>#}
+{#                    <p class="shortAnswer">{{ garden_neighbourhood|title }}</p>#}
+{#                    <div class="tree-info-line"></div>#}
+                {% endif %}
+
+                <!--Park Information Section -->
+                {%  if park_id is not None %}
+                    <label>Park ID</label>
+                    <p class="shortAnswer">{{ park_id }}</p>
+                    <div class="tree-info-line"></div>
+                    <label>Name</label>
+                    <p class="shortAnswer">{{ park_name|title }}</p>
+                    <div class="tree-info-line"></div>
+                    <label>Size</label>
+                    <p class="shortAnswer">{{ park_size }} Hectares</p>
+                    <div class="tree-info-line"></div>
+                    <label>Address</label>
+                    <p class="shortAnswer">{{ park_address|title }}</p>
+                    <div class="tree-info-line"></div>
+                    <label>Neighbourhood</label>
+                    <p class="shortAnswer">{{ park_neighbourhood|title }}</p>
+                    <div class="tree-info-line"></div>
+                {% endif %}
+
             </div>
         </div>
     </div>
-
 
     <!-- Photo Section -->
     <div class="photos-title" id="orange-box">
@@ -435,7 +500,7 @@
 
     <!-- Toggle heart - full/empty -->
     <script>
-// TODO: adding and removing to user's favourites list needs to be implemented
+        // TODO: adding and removing to user's favourites list needs to be implemented
         var full = "{%  static 'images/heart-full.png' %}";
         var empty = "{%  static 'images/heart-empty.png' %}";
         var heart = document.getElementById('heart');
