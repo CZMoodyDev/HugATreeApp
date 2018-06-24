@@ -26,8 +26,8 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('detail/', views.about, name='detail'),
     path('detail/tree/<int:id>/', views.tree_detail, name='tree_detail'),
-    #path('detail/park/<int:id>/', views.park_detail, name='park_detail'),
-    #path('detail/food_tree/<int:id>/', views.food_tree_detail, name='food_tree_detail'),
+    path('detail/park/<int:id>/', views.park_detail, name='park_detail'),
+    path('detail/food_tree/<int:id>/', views.food_tree_detail, name='food_tree_detail'),
     path('favourites/', views.favourites, name='favourites'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

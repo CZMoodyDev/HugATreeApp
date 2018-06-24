@@ -17,7 +17,6 @@
 {% block body_block %}
 
 
-    <!-- Tree Information Section -->
 
     <div id="tree-detail-green-box"></div>
     <div class="row1-treeDetail">
@@ -29,6 +28,7 @@
             <div class="tree-info-container">
                 <img id="heart" class="tree-detail-heart" src="{%  static 'images/heart-empty.png' %}" alt="heart">
 
+                <!-- Tree Information Section -->
                 {%  if tree_id is not None %}
                     <label>Tree ID</label>
                     <p class="shortAnswer">{{ tree_id }}</p>
@@ -55,7 +55,7 @@
                     <div class="tree-info-line"></div>
 
                     <label>Date Planted</label>
-                    <p class="shortAnswer">{{ birthdate }}</p>
+                    <p class="shortAnswer">{{ plant_date }}</p>
                     <div class="tree-info-line"></div>
 
                     <label>Address</label>
@@ -93,7 +93,7 @@
 
                     {%  if year_created %}
                         <label>Creation Date</label>
-                        <p class="shortAnswer">{{ year_created }} </p>
+                        <p class="shortAnswer">{{ year_created }}</p>
                         <div class="tree-info-line"></div>
                     {% endif %}
 
