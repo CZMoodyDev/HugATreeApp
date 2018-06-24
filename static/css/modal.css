@@ -79,7 +79,7 @@ input:focus {
     outline: none;
 }
 
-button.modalButton {
+button.modalButton, a.modalButton {
     width: 264px;
     height: 50px;
     margin-top: 44px;
@@ -94,7 +94,7 @@ button.modalButton {
     color: #FE7460;
 }
 
-button.modalButton:hover {
+button.modalButton:hover, a.modalButton:hover {
     background-color: #FE7460;
     color: #FFFFFF;
 }
@@ -120,5 +120,6 @@ button.modalButton:hover {
     .modal-content{width: 300px; }
     .container-form {width: 246px;}
     button.modalButton {width: 244px; margin-left: 0;}
+    a.modalButton {width: 244px; margin-left: 0;}
     label {left: -22px;}
 }
