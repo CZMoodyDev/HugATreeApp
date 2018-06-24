@@ -22,6 +22,7 @@ from hug_project_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('register/', views.register, name='register'),
     path('about/', views.about, name='about'),
     path('detail/', views.about, name='detail'),
     path('detail/tree/<int:id>/', views.tree_detail, name='tree_detail'),
