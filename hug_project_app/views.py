@@ -30,14 +30,14 @@ def index(request):
 def about(request):
     return render(request, 'about.html')
 
-def tree_detail(request):
+def tree_detail(request, id):
     context_dict = {}
     try:
         # TODO: Curtis add TREE_ID or Park_ID or FoodTree_ID parameter
         # How to handle try and excepts with three objects?
 
         # ********* Tree Info **********************************************
-        tree = Tree.objects.get(id__exact=12)
+        tree = Tree.objects.get(id__exact=id)
         context_dict['tree_id'] = tree.TREE_ID
         context_dict['common_name'] = tree.COMMON_NAME
         context_dict['diameter'] = tree.DIAMETER
@@ -94,6 +94,8 @@ def tree_detail(request):
         pass
     return render(request, 'tree_detail.html', context_dict)
 
+#def park_detail(request, id):
+#def food_tree_detail(request, id):
 
 def favourites(request):
     return render(request, 'favourites.html')
