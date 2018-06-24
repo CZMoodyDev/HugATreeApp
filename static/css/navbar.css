@@ -17,8 +17,8 @@
 }
 
 .navlinks a {
-        color: #DD5448;
-       float: left;
+    color: #DD5448;
+    float: left;
     font-family: 'Montserrat', sans-serif;
     font-size: 13px;
     font-weight: 600;
@@ -32,7 +32,7 @@
 }
 
 .navlinks a:hover {
-    color: #FE7460;
+    color: #fe816f;
 }
 
 
@@ -41,7 +41,7 @@
     .navlinks {
         -webkit-align-items: center;
         align-items: center;
-         -webkit-flex-direction: row;
+        -webkit-flex-direction: row;
         flex-direction: row;
         display: -webkit-flex;
         display: flex;
