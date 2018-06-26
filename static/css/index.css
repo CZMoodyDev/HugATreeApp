@@ -71,8 +71,8 @@ body {
 @media screen and (max-width: 320px) {.row1 {margin-bottom: 80px;}}
 
 .row2 {
-    align-items: center;
-    -webkit-align-items: center;
+    align-items: flex-start;
+    -webkit-align-items: flex-start;
     background-color: #ffffff;
     display: flex;
     display: -webkit-flex;
