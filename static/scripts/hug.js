@@ -1,7 +1,16 @@
+
+function displayElement(element){
+    element.style.display = "block";
+}
+
+function hideElement (element){
+    element.style.display = "none";
+}
+
 function resetRegisterModal(form, formfields, blanksMessage, emailMessage, passwordMessage) {
-    blanksMessage.style.display = "none";
-    emailMessage.style.display = "none";
-    passwordMessage.style.display = "none";
+    hideElement(blanksMessage);
+    hideElement(emailMessage);
+    hideElement(passwordMessage);
     form.reset();
     //return style colour to original colour (if it has been altered by invalid styles)
     for(var i = 0; i < formfields.length; i++) {
@@ -10,12 +19,6 @@ function resetRegisterModal(form, formfields, blanksMessage, emailMessage, passw
         $("label[for='"+reqFieldIDName+"']").css("color", "#5A634D");
         reqField.css("border-bottom", "1px solid #5A634D");
     }
-}
-
-
-function validateEmail(email) {
-    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
 }
 
 function fieldInvalidStyling(field){
@@ -35,14 +38,17 @@ function fieldInvalidStyling(field){
 }
 
 
-
-
-
-
+//Changes everything back to green
 function fieldValidStyling(field) {
     var reqFieldIDName = field.attr('id');
     $("label[for='"+reqFieldIDName+"']").css("color", "#5A634D");
+    field.css("color", "#5A634D");
     field.css("border-bottom", "1px solid #5A634D");
+}
+
+function validateEmail(email) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
 }
 
 function passwordInvalidStyling(field) {
@@ -60,17 +66,4 @@ function passwordInvalidStyling(field) {
         $(this).css("color", "#5A634D");
         $(this).css("border-bottom", "1px solid #5A634D");
     });
-
 }
-
-
-function displayElement(element){
-    element.style.display = "block";
-}
-
-function hideElement (element){
-    element.style.display = "none";
-}
-
-
-
