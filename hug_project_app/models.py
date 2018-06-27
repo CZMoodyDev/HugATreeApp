@@ -74,6 +74,8 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, models.CASCADE)
     picture = models.ImageField(upload_to='profile_images', blank=True)
     tree = models.ManyToManyField(Tree, blank=True)
+    foodTree = models.ManyToManyField(FoodTree, blank=True)
+    park = models.ManyToManyField(Park, blank=True)
 
 class Photo(models.Model):
     id = models.IntegerField(primary_key=True)
