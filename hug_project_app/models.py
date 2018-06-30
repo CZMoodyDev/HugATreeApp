@@ -1,10 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 class Photo(models.Model):
     id = models.IntegerField(primary_key=True)
     approved = models.BooleanField(default=False)
     picture = models.ImageField(upload_to='tree_photo', blank=True)
     caption = models.TextField(blank=True)
+
 
 class TreeInfo(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -12,6 +14,7 @@ class TreeInfo(models.Model):
     habitat = models.CharField(max_length=90, blank=True, null=True)
     uses = models.TextField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
+
 
 class Tree(models.Model):
     TREE_ID = models.IntegerField(blank=True, null=True)
@@ -35,7 +38,8 @@ class Tree(models.Model):
     LONGITUDE = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
     TreeInfo_ID = models.ForeignKey(TreeInfo, on_delete=models.SET_NULL, null=True)
     photo = models.ManyToManyField(Photo, blank=True)
-    
+
+
 class Park(models.Model):
     ParkID = models.IntegerField(blank=True, null=True)
     Name = models.CharField(max_length=50, blank=True, null=True)
@@ -55,6 +59,7 @@ class Park(models.Model):
     LATITUDE = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
     LONGITUDE = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
     photo = models.ManyToManyField(Photo, blank=True)
+
 
 class FoodTree(models.Model):
     MAPID = models.CharField(max_length=10, blank=True, null=True)
@@ -77,7 +82,8 @@ class FoodTree(models.Model):
     PUBLIC_E_MAIL = models.CharField(max_length=100, blank=True, null=True)
     WEBSITE = models.CharField(max_length=250, blank=True, null=True)
     photo = models.ManyToManyField(Photo, blank=True)
-    
+
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, models.CASCADE)
     picture = models.ImageField(upload_to='profile_images', blank=True)

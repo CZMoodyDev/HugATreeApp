@@ -28,8 +28,16 @@ urlpatterns = [
     path('detail/tree/<int:id>/', views.tree_detail, name='tree_detail'),
     path('detail/park/<int:id>/', views.park_detail, name='park_detail'),
     path('detail/food_tree/<int:id>/', views.food_tree_detail, name='food_tree_detail'),
+    path('add_tree_photo/<int:id>/', views.add_tree_photo, name='add_tree_photo'),
+    path('add_food_photo/<int:id>/', views.add_food_photo, name='add_food_photo'),
+    path('add_park_photo/<int:id>/', views.add_park_photo, name='add_park_photo'),
     path('favourites/', views.favourites, name='favourites'),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
 
 # WHen deploying need to chang static stuff see here for info:

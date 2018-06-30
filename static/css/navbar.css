@@ -70,11 +70,11 @@ footer {
 }
 
 p.copyright {
+    bottom: 30px;
     display: block;
     font-family: OldStandardTT, Serif;
     font-style: italic;
     position: absolute;
-    bottom: 30px;
     width: 100%;
     font-size: 9px;
     color: #444444;

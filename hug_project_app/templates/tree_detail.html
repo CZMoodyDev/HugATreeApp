@@ -154,10 +154,53 @@
     <div class="photos-title" id="orange-box">
         <h1 class="photos-title">Photos</h1>
     </div>
-    <div id="tree-detail-pink-box"></div>
+
+    <!-- Add a Photo -->
+    {% if added %}
+        <p>your photo has been received and is pending approval!</p>
+    {%  endif %}
+    {% if error %}
+        <p>Something went wrong please try and add your photo again</p>
+    {%  endif %}
+    <form id="treephoto_form" method="post"
+            {%  if tree_id is not None %}
+          action="{% url 'add_tree_photo' tree_pk %}"
+            {%  endif %}
+            {%  if food_id is not None %}
+          action="{% url 'add_food_photo' food_pk %}"
+            {%  endif %}
+            {%  if park_id is not None %}
+          action="{% url 'add_park_photo' park_id %}"
+            {%  endif %}
+          enctype="multipart/form-data">
+
+        {% csrf_token %}
+        <p>
+            <input id="id_picture" type="file" class="" name="picture">
+        </p>
+        <p><input type="submit" value="Upload" /></p>
+    </form>
+ <div id="tree-detail-pink-box"></div>
+    <!-- Display Approved Photos -->
     <div class="row2-treeDetail">
-        <img class="tree-photo" src="{%  static 'images/photo1.png' %}" alt="tree hugger 1">
-        <img class="tree-photo" src="{%  static 'images/photo2.png' %}" alt="tree hugger 2">
+
+        {% for tree_photo in tree_photos %}
+            {% if tree_photo.approved %}
+                <img class="tree-photo" src="{{tree_photo.picture.url}}" alt="tree image">
+            {% endif %}
+        {% endfor %}
+
+        {% for park_photo in park_photos %}
+            {% if park_photo.approved %}
+                <img class="tree-photo" src="{{park_photo.picture.url}}" alt="park image">
+            {% endif %}
+        {% endfor %}
+
+        {% for foodtree_photo in foodtree_photos %}
+            {% if foodtree_photo.approved %}
+                <img class="tree-photo" src="{{foodtree_photo.picture.url}}" alt="foodtree image">
+            {% endif %}
+        {% endfor %}
     </div>
 
 
