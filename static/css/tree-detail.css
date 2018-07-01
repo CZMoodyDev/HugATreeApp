@@ -33,7 +33,7 @@
     display: flex;
     -webkit-justify-content: center;
     justify-content: center;
-    margin-bottom: 150px;
+    margin-bottom: 50px;
 }
 @media screen and (max-width: 1000px) {
     .row1-treeDetail {
@@ -55,11 +55,26 @@
     flex-wrap: wrap;
     -webkit-justify-content: center;
     justify-content: center;
-    margin-top: -370px;
+    margin-top: 16px;
+}
+@media screen and (max-width: 1000px) {.row2-treeDetail {}}
+@media screen and (max-width: 768px) {.row2-treeDetail {margin-top: 20px;}}
+
+.row3-treeDetail {
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+    /*margin-top: -370px;*/
     margin-bottom: 150px;
 }
-@media screen and (max-width: 1000px) {.row2-treeDetail {margin-bottom: 50px;}}
-@media screen and (max-width: 768px) {.row2-treeDetail {margin-top: 20px;}}
+@media screen and (max-width: 1000px) {.row3-treeDetail {margin-bottom: 50px;}}
+@media screen and (max-width: 768px) {.row3-treeDetail {margin-top: 20px;}}
 
 .box-treeDetail {
     position: relative;
@@ -153,7 +168,7 @@ h3.tree-type-more-info {
     border-radius: 13px;
     margin: 30px;
     width: 250px;
-    z-index: 100;
+    z-index: 20;
 }
 @media screen and (max-width: 500px) {.tree-photo {margin: 10px;}}
 #orange-box {
@@ -185,4 +200,52 @@ h1.photos-title {
 }
 @media screen and (max-width: 456px) {
     h1.photos-title {font-size: 24px;}
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px #B6C3AD solid;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+label.custom-file-upload {
+    color: #444444;
+    line-height: 16px;
+    text-align: center;
+}
+
+label.custom-file-upload:hover {
+    color: #FE7460;
+}
+
+.plus {
+    color: #EF4D36;
+    font-weight: bolder;
+}
+
+.plus:hover {
+    color: #FFFFFF;
+}
+.added-modal {
+    background-color: rgba(255,255,255, 0.9);
+    display: block;
+    height: 100%;
+    left: 0;
+    padding-top: 80px;
+    position: fixed;
+    top: 0;
+    overflow: auto;
+    width: 100%;
+    z-index: 1000;
+}
+
+img.photo-received {
+    display: block;
+    height: auto;
+    margin: 20px auto 20px auto;
+    width: 100px;
 }

@@ -150,40 +150,93 @@
         </div>
     </div>
 
-    <!-- Photo Section -->
-    <div class="photos-title" id="orange-box">
-        <h1 class="photos-title">Photos</h1>
+    {% if tree_photos or park_photos or foodtree_photos %}
+        <!-- Photo Section -->
+        <div class="photos-title" id="orange-box">
+            <h1 class="photos-title">Photos</h1>
+        </div>
+        {#        <div id="tree-detail-pink-box"></div>#}
+    {% endif %}
+
+    <!-- Add a Photo Form-->
+    <div class="row2-treeDetail">
+        <form id="treephoto_form" method="post"
+                {%  if tree_id is not None %}
+              action="{% url 'add_tree_photo' tree_pk %}"
+                {%  endif %}
+                {%  if food_id is not None %}
+              action="{% url 'add_food_photo' food_pk %}"
+                {%  endif %}
+                {%  if park_id is not None %}
+              action="{% url 'add_park_photo' park_id %}"
+                {%  endif %}
+              enctype="multipart/form-data">
+
+            {% csrf_token %}
+            <label for="id_picture" class="custom-file-upload">
+                <span class="plus" >+</span> Add a Photo of
+                {%  if tree_id is not None %}
+                    Tree no.  {{ tree_id }}
+                {%  endif %}
+                {%  if food_id is not None %}
+                    {% if last_word_of_name == 'Garden' %}
+                        {{ garden_name }}
+                    {% else %}
+                        {{ garden_name }} garden
+                    {% endif %}
+                {%  endif %}
+                {%  if park_id is not None %}
+                    {% if last_word_of_name == 'Park' %}
+                        {{ park_name }}
+                    {% else %}
+                        {{ park_name }} park
+                    {% endif %}
+                {%  endif %}
+            </label>
+            <input id="id_picture" type="file" name="picture"/>
+            <script> document.getElementById("id_picture").onchange = function() {
+                document.getElementById("treephoto_form").submit();};
+            </script>
+        </form>
     </div>
 
-    <!-- Add a Photo -->
+    <!-- Your Photo has been Added Modal -->
     {% if added %}
-        <p>your photo has been received and is pending approval!</p>
+        <div id="addedModal" class="added-modal">
+            <div class="modal-content">
+                <span id="addedModalClose" class="close">&times;</span>
+                <div class="container-form">
+                    <p class="thank-you">Your photo has been received and is pending approval.</p>
+                    <img class="photo-received"
+                            {%  if tree_id is not None %}
+                         alt="tree" src="{%  static 'images/tree-photo.png' %}">
+                            {%  endif %}
+                    {%  if food_id is not None %}
+                        alt="food-tree" src="{%  static 'images/food-photo.png' %}">
+                    {%  endif %}
+                    {%  if park_id is not None %}
+                        alt="park" src="{%  static 'images/park-photo.png' %}">
+                    {%  endif %}
+                </div>
+            </div>
+        </div>
     {%  endif %}
+
+    <!-- Error in Adding Your Photo Modal -->
     {% if error %}
-        <p>Something went wrong please try and add your photo again</p>
+        <div id="addedModal" class="added-modal">
+            <div class="modal-content">
+                <span id="addedModalClose" class="close">&times;</span>
+                <div class="container-form">
+                    <p class="thank-you">Something went wrong. Please try and add your photo again.</p>
+                    <img class="photo-received" alt="photo-error" src="{%  static 'images/error-photo.png' %}">
+                </div>
+            </div>
+        </div>
     {%  endif %}
-    <form id="treephoto_form" method="post"
-            {%  if tree_id is not None %}
-          action="{% url 'add_tree_photo' tree_pk %}"
-            {%  endif %}
-            {%  if food_id is not None %}
-          action="{% url 'add_food_photo' food_pk %}"
-            {%  endif %}
-            {%  if park_id is not None %}
-          action="{% url 'add_park_photo' park_id %}"
-            {%  endif %}
-          enctype="multipart/form-data">
 
-        {% csrf_token %}
-        <p>
-            <input id="id_picture" type="file" class="" name="picture">
-        </p>
-        <p><input type="submit" value="Upload" /></p>
-    </form>
- <div id="tree-detail-pink-box"></div>
     <!-- Display Approved Photos -->
-    <div class="row2-treeDetail">
-
+    <div class="row3-treeDetail">
         {% for tree_photo in tree_photos %}
             {% if tree_photo.approved %}
                 <img class="tree-photo" src="{{tree_photo.picture.url}}" alt="tree image">
@@ -593,6 +646,18 @@
             } else {
                 heart.src=full;
             }
+        }
+    </script>
+
+    <script>
+        //  **** Added Modal Functionality ***** //
+
+        // Variables for thank you modal
+        var addedModal = document.getElementById('addedModal');
+        var addedModalX = document.getElementById('addedModalClose');
+
+        addedModalX.onclick = function() {
+            hideElement(addedModal);
         }
     </script>
 {% endblock %}
