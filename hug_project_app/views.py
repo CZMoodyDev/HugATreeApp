@@ -63,6 +63,17 @@ def save_and_add_photo(request, tree_object, context_dict):
     return context_dict
 
 
+def get_number_of_approved_photo(tree_object, context_dict):
+    photos = tree_object.photo.all()
+    number_approved_photos = 0
+    for photo in photos:
+        if photo.approved:
+            number_approved_photos = 1 + number_approved_photos
+
+    context_dict['number_approved_photos'] = number_approved_photos
+    return context_dict
+
+
 # Tree Views and Helper Function
 def build_tree(tree, context_dict):
     context_dict['tree_pk'] = tree.id
@@ -94,6 +105,10 @@ def build_tree(tree, context_dict):
     context_dict['neighbourhood'] = tree.NEIGHBOURHOOD_NAME
 
     context_dict['tree_photos'] = tree.photo.all()
+
+    # get number of approved photos to determine if photo title should be displayed
+    get_number_of_approved_photo(tree, context_dict)
+
     return context_dict
 
 
@@ -145,6 +160,9 @@ def build_food(food, context_dict):
     # context_dict['garden_neighbourhood'] = food.Neighbourhood
 
     context_dict['foodtree_photos'] = food.photo.all()
+
+    # get number of approved photos to determine if photo title should be displayed
+    get_number_of_approved_photo(food, context_dict)
     return context_dict
 
 
@@ -188,6 +206,10 @@ def build_park(park, context_dict):
     context_dict['park_address'] = str(park_address_number) + ' ' + park_street
     context_dict['park_neighbourhood'] = park.NeighbourhoodName
     context_dict['park_photos'] = park.photo.all()
+
+    # get number of approved photos to determine if photo title should be displayed
+    get_number_of_approved_photo(park, context_dict)
+
     return context_dict
 
 
