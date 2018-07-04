@@ -64,16 +64,22 @@
                     <label>Neighbourhood</label>
                     <p class="shortAnswer">{{ neighbourhood|title }}</p>
                     <div class="tree-info-line"></div>
-                    <h3 class="tree-type-more-info">More about {{ common_name|title }} Trees</h3>
 
-                    <label>Description</label>
-                    <p class="longAnswer">A medium to large sized tree, reaching heights of 18 to 27 metres (60 to 90 ft) and exceptionally over 35 metres (115 feet). The leaves are usually 9 to 11 centimetres (3 1⁄2 to 4 1⁄4 in) long on a full grown tree. The trunk diameter can range from 46 to 76 cm (18 to 30 in), depending on the growing conditions</p>
+                    {% if tree_info %}
+                        <h3 class="tree-type-more-info">More about {{ common_name|title }} Trees</h3>
 
-                    <label>Habitat</label>
-                    <p class="longAnswer">One of the most abundant and widespread trees in eastern North America. It can be found from the south of Newfoundland, Nova Scotia and southern Quebec to the south west of Ontario, extreme southeastern Manitoba and northern Minnesota; south to Wisconsin, Illinois, Missouri, eastern Oklahoma, and eastern Texas in its western range; and east to Florida. It has the largest continuous range along the North American Atlantic Coast of any tree that occurs in Florida. In total it ranges 2,600 km (1,600 mi) from north to south.[6] The species is native to all regions of the United States east of the 95th meridian.</p>
+                        {% if tree_description %}
+                            <label>Description</label>
+                            <p class="longAnswer">{{ tree_description }}</p>{% endif %}
 
-                    <label>Uses (other than hugging)</label>
-                    <p class="longAnswer">In the lumber industry Acer rubrum is considered a "soft maple", a designation it shares, commercially, with silver maple  It is also used in the production of maple syrup. It is a medium quality firewood.</p>
+                        {% if tree_habitat %}
+                            <label>Habitat</label>
+                            <p class="longAnswer">{{ tree_habitat }}</p>{% endif %}
+
+                        {% if tree_uses %}
+                            <label>Uses (other than hugging)</label>
+                            <p class="longAnswer">{{ tree_uses }}</p> {% endif %}
+                    {% endif %}
                 {% endif %}
 
                 <!--Food Tree Information Section -->
@@ -153,7 +159,7 @@
         <div class="photos-title" id="orange-box">
             <h1 class="photos-title">Photos</h1>
         </div>
-        {#        <div id="tree-detail-pink-box"></div>#}
+        {#                <div id="tree-detail-pink-box"></div>#}
     {% endif %}
 
     <!-- Form to Add a Photo-->
@@ -192,7 +198,7 @@
             </label>
             <input id="id_picture" type="file" name="picture"/>
             <script> // Auto-submits photo after photo is chosen
-                document.getElementById("id_picture").onchange = function() {
+            document.getElementById("id_picture").onchange = function() {
                 document.getElementById("treephoto_form").submit();};
             </script>
         </form>
@@ -218,19 +224,36 @@
                 </div>
             </div>
         </div>
+        <script>
+            //  **** Added Modal Functionality ***** //
+            var addedModal = document.getElementById('addedModal');
+            var addedModalX = document.getElementById('addedModalClose');
+
+            addedModalX.onclick = function() {
+                hideElement(addedModal);
+            };
+        </script>
     {%  endif %}
 
     <!-- Error in Adding Your Photo Modal -->
     {% if error %}
-        <div id="addedModal" class="added-modal">
-            <div class="modal-content">
-                <span id="addedModalClose" class="close">&times;</span>
+        <div id="errorModal" class="added-modal">
+            <div class="error-modal-content">
+                <span id="errorModalClose" class="close">&times;</span>
                 <div class="container-form">
                     <p class="thank-you">Something went wrong. Please try and add your photo again.</p>
-                    <img class="photo-received" alt="photo-error" src="{%  static 'images/error-photo.png' %}">
                 </div>
             </div>
         </div>
+        <script>
+            //  **** Error Modal Functionality ***** //
+            var errorModal = document.getElementById('errorModal');
+            var errorModalX = document.getElementById('errorModalClose');
+
+            errorModalX.onclick = function() {
+                hideElement(errorModal);
+            };
+        </script>
     {%  endif %}
 
     <!-- Display Approved Photos -->
@@ -253,7 +276,7 @@
             {% endif %}
         {% endfor %}
     </div>
-    
+
     <!-- Map  and its Styling Script -->
     <script>
         function initMap() {
@@ -642,18 +665,6 @@
             } else {
                 heart.src=full;
             }
-        }
-    </script>
-
-    <script>
-        //  **** Added Modal Functionality ***** //
-
-        // Variables for thank you modal
-        var addedModal = document.getElementById('addedModal');
-        var addedModalX = document.getElementById('addedModalClose');
-
-        addedModalX.onclick = function() {
-            hideElement(addedModal);
         }
     </script>
 {% endblock %}

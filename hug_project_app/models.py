@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Photo(models.Model):
     id = models.IntegerField(primary_key=True)
     approved = models.BooleanField(default=False)
@@ -11,7 +12,7 @@ class Photo(models.Model):
 class TreeInfo(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=90, blank=True, null=True)
-    habitat = models.CharField(max_length=90, blank=True, null=True)
+    habitat = models.TextField(blank=True, null=True)
     uses = models.TextField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
 
@@ -36,7 +37,7 @@ class Tree(models.Model):
     COMMON_NAME = models.CharField(max_length=50, blank=True, null=True)
     LATITUDE = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
     LONGITUDE = models.DecimalField(max_digits=10, decimal_places=5, blank=True, null=True)
-    TreeInfo_ID = models.ForeignKey(TreeInfo, on_delete=models.SET_NULL, null=True)
+    TreeInfo_ID = models.ForeignKey(TreeInfo, on_delete=models.SET_NULL, null=True, blank=True)
     photo = models.ManyToManyField(Photo, blank=True)
 
 

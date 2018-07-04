@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from hug_project_app.models import Tree, FoodTree, Park, Photo
+from hug_project_app.models import Tree, FoodTree, Park, Photo, TreeInfo
 from hug_project_app.forms import PhotoForm
 from datetime import datetime
 import calendar
@@ -108,6 +108,14 @@ def build_tree(tree, context_dict):
 
     # get number of approved photos to determine if photo title should be displayed
     get_number_of_approved_photo(tree, context_dict)
+
+    tree_info = tree.TreeInfo_ID
+    context_dict['tree_info'] = tree_info
+    if tree_info is not None:
+        context_dict['tree_description'] = tree_info.description
+        context_dict['tree_habitat'] = tree_info.habitat
+        context_dict['tree_uses'] = tree_info.uses
+
 
     return context_dict
 
