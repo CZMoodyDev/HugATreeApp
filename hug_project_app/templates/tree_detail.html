@@ -159,7 +159,6 @@
         <div class="photos-title" id="orange-box">
             <h1 class="photos-title">Photos</h1>
         </div>
-        {#                <div id="tree-detail-pink-box"></div>#}
     {% endif %}
 
     <!-- Form to Add a Photo-->
@@ -204,57 +203,64 @@
         </form>
     </div>
 
+
     <!-- Your Photo has been Added Modal -->
-    {% if added %}
-        <div id="addedModal" class="added-modal">
-            <div class="modal-content">
-                <span id="addedModalClose" class="close">&times;</span>
-                <div class="container-form">
-                    <p class="thank-you">Your photo has been received and is pending approval.</p>
-                    <img class="photo-received"
-                            {%  if tree_id is not None %}
-                         alt="tree" src="{%  static 'images/tree-photo.png' %}">
-                            {%  endif %}
-                    {%  if food_id is not None %}
-                        alt="food-tree" src="{%  static 'images/food-photo.png' %}">
-                    {%  endif %}
-                    {%  if park_id is not None %}
-                        alt="park" src="{%  static 'images/park-photo.png' %}">
-                    {%  endif %}
+    {% for message in messages %}
+
+        {% if 'added' in message.tags %}
+            <div id="addedModal" class="added-modal">
+                <div class="modal-content">
+                    <span id="addedModalClose" class="close">&times;</span>
+                    <div class="container-form">
+                        <p class="thank-you">{{ message }}</p>
+                        <img class="photo-received"
+                                {%  if tree_id is not None %}
+                             alt="tree" src="{%  static 'images/tree-photo.png' %}">
+                                {%  endif %}
+                        {%  if food_id is not None %}
+                            alt="food-tree" src="{%  static 'images/food-photo.png' %}">
+                        {%  endif %}
+                        {%  if park_id is not None %}
+                            alt="park" src="{%  static 'images/park-photo.png' %}">
+                        {%  endif %}
+                    </div>
                 </div>
             </div>
-        </div>
-        <script>
-            //  **** Added Modal Functionality ***** //
-            var addedModal = document.getElementById('addedModal');
-            var addedModalX = document.getElementById('addedModalClose');
+            <script>
+                //  **** Added Modal Functionality ***** //
+                var addedModal = document.getElementById('addedModal');
+                var addedModalX = document.getElementById('addedModalClose');
 
-            addedModalX.onclick = function() {
-                hideElement(addedModal);
-            };
-        </script>
-    {%  endif %}
+                addedModalX.onclick = function() {
+                    hideElement(addedModal);
+                };
+            </script>
+        {% endif %}
 
-    <!-- Error in Adding Your Photo Modal -->
-    {% if error %}
-        <div id="errorModal" class="added-modal">
-            <div class="error-modal-content">
-                <span id="errorModalClose" class="close">&times;</span>
-                <div class="container-form">
-                    <p class="thank-you">Something went wrong. Please try and add your photo again.</p>
+        <!-- Error in Adding Your Photo Modal -->
+        {% if 'error' in message.tags %}
+            <div id="errorModal" class="added-modal">
+                <div class="error-modal-content">
+                    <span id="errorModalClose" class="close">&times;</span>
+                    <div class="container-form">
+                        <p class="thank-you">{{ message }}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <script>
-            //  **** Error Modal Functionality ***** //
-            var errorModal = document.getElementById('errorModal');
-            var errorModalX = document.getElementById('errorModalClose');
+            <script>
+                //  **** Error Modal Functionality ***** //
+                var errorModal = document.getElementById('errorModal');
+                var errorModalX = document.getElementById('errorModalClose');
 
-            errorModalX.onclick = function() {
-                hideElement(errorModal);
-            };
-        </script>
-    {%  endif %}
+                errorModalX.onclick = function() {
+                    hideElement(errorModal);
+                };
+            </script>
+        {%  endif %}
+
+    {% endfor %}
+
+
 
     <!-- Display Approved Photos -->
     <div class="row3-treeDetail">
@@ -651,7 +657,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLLf1AL8ZMRKireBuRIL_n6XD3W3bD5qc&callback=initMap"
             async defer></script>
 
-    <!-- Toggle heart - full/empty -->
+    <!-- Toggle heart - full/empty (ie add favourite/remove favourite) -->
     <script>
         // TODO: adding and removing to user's favourites list needs to be implemented
         var full = "{%  static 'images/heart-full.png' %}";

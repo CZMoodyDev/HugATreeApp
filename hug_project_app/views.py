@@ -8,12 +8,14 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth.models import User
 from django import forms
+from django.shortcuts import redirect
+from django.contrib import messages
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import redirect
+
 
 
 def index(request):
@@ -41,8 +43,9 @@ def index(request):
 def about(request):
     return render(request, 'about.html')
 
+
 # Helper Function
-def save_and_add_photo(request, tree_object, context_dict):
+def save_and_add_photo(request, tree_object):
     # create photo object and save it
     if request.method == "POST":
         photo_form = PhotoForm(request.POST, request.FILES)
@@ -54,13 +57,10 @@ def save_and_add_photo(request, tree_object, context_dict):
             # retrieve newly created photo object and link to tree object (many to many)
             photo_to_add = Photo.objects.get(picture__exact=photo.picture)
             tree_object.photo.add(photo_to_add)
-            context_dict['added'] = True
-            context_dict['error'] = False
+            messages.info(request, 'Your photo has been received and is pending approval.', extra_tags='added')
         else:
             # Form is invalid, render error on tree detail page
-            context_dict['added'] = False
-            context_dict['error'] = True
-    return context_dict
+            messages.error(request, 'Something went wrong. Please try and add your photo again.', extra_tags='error')
 
 
 def get_number_of_approved_photo(tree_object, context_dict):
@@ -116,7 +116,6 @@ def build_tree(tree, context_dict):
         context_dict['tree_habitat'] = tree_info.habitat
         context_dict['tree_uses'] = tree_info.uses
 
-
     return context_dict
 
 
@@ -125,23 +124,18 @@ def tree_detail(request, id):
     try:
         tree = Tree.objects.get(id__exact=id)
         build_tree(tree, context_dict)
-        # Set added photo and form errors to false
-        context_dict['added'] = False
-        context_dict['error'] = False
     except Tree.DoesNotExist:
         pass
     return render(request, 'tree_detail.html', context_dict)
 
 
 def add_tree_photo(request, id):
-    context_dict = {}
     try:
         tree = Tree.objects.get(id__exact=id)
-        build_tree(tree, context_dict)
     except Tree.DoesNotExist:
         tree = None
-    save_and_add_photo(request, tree, context_dict)
-    return render(request, 'tree_detail.html', context_dict)
+    save_and_add_photo(request, tree)
+    return redirect('tree_detail', id=id)
 
 
 # FoodTree Views and Helper Function
@@ -179,23 +173,18 @@ def food_tree_detail(request, id):
     try:
         food = FoodTree.objects.get(id__exact=id)
         build_food(food, context_dict)
-        # Set added photo and form errors to false
-        context_dict['added'] = False
-        context_dict['error'] = False
     except FoodTree.DoesNotExist:
         pass
     return render(request, 'tree_detail.html', context_dict)
 
 
 def add_food_photo(request, id):
-    context_dict = {}
     try:
         food = FoodTree.objects.get(id__exact=id)
-        build_food(food, context_dict)
     except FoodTree.DoesNotExist:
         food = None
-    save_and_add_photo(request, food, context_dict)
-    return render(request, 'tree_detail.html', context_dict)
+    save_and_add_photo(request, food)
+    return redirect('food_tree_detail', id=id)
 
 
 # Park Views and Helper Function
@@ -226,23 +215,18 @@ def park_detail(request, id):
     try:
         park = Park.objects.get(id__exact=id)
         build_park(park, context_dict)
-        # Set added photo and form errors to false
-        context_dict['added'] = False
-        context_dict['error'] = False
     except Park.DoesNotExist:
         pass
     return render(request, 'tree_detail.html', context_dict)
 
 
 def add_park_photo(request, id):
-    context_dict = {}
     try:
         park = Park.objects.get(id__exact=id)
-        build_park(park, context_dict)
     except Park.DoesNotExist:
         park = None
-    save_and_add_photo(request, park, context_dict)
-    return render(request, 'tree_detail.html', context_dict)
+    save_and_add_photo(request, park)
+    return redirect('park_detail', id=id)
 
 
 class HugUserCreationForm(forms.Form):

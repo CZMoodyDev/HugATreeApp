@@ -249,9 +249,9 @@ img.photo-received {
     width: 100px;
 }
 
-/* Modal Content */
+/* Error Modal Content */
 .error-modal-content {
-    background-color: #FFFCF9;
+   background-color: #FFFCF9;
     border: 2px solid #B6C3AD;
     -webkit-border-radius: 30px;
     border-radius: 30px;
@@ -259,6 +259,8 @@ img.photo-received {
     padding: 20px;
     width: 392px;
 }
+@media screen and (max-width: 600px) {.error-modal-content{margin: 0 auto 180px auto; padding: 10px 20px; width: 250px;}}
+
 
 #errorModalClose {
     color: #FE7460;
