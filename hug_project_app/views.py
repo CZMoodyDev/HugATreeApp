@@ -137,6 +137,10 @@ def register(request):
             # We'll need to add first/last to a new profile
             user = User.objects.create_user(username, email, raw_password)
 
+            #Create a UserProfile when a user is created
+            user_profile = UserProfile(user=user)
+            user_profile.save()
+
             user = authenticate(username=username, password=raw_password, email=email, firstname=firstname, lastname=lastname)
             login(request, user)
             status = 'success'
