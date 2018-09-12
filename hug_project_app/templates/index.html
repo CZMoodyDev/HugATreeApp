@@ -17,9 +17,9 @@
             <div id="neighbourhood" class="custom-select" style="width:310px;">
                 <select id="neighbourhood-dropdown" name="neighborhood">
                     <option value="">choose a neighbourhood</option>
-                    <option value="ARBUTUS RIDGE,Arbutus Ridge">arbutus ridge</option>
-                    <option value="parcel">downtown</option>
-                    <option value="DUNBAR - SOUTHLANDS,Dunbar-Southlands">dunbar southlands</option>
+                    <option value="ARBUTUS-RIDGE,Arbutus Ridge">arbutus ridge</option>
+                    <option value="DOWNTOWN,Downtown">downtown</option>
+                    <option value="DUNBAR-SOUTHLANDS,Dunbar-Southlands">dunbar southlands</option>
                     <option value="FAIRVIEW,Fairview">fairview</option>
                     <option value="GRANDVIEW - WOODLANDS,Grandview-Woodland">grandview woodlands</option>
                     <option value="HASTINGS - SUNRISE,Hastings-Sunrise">hastings sunrise</option>
@@ -469,6 +469,7 @@
 
     <!--- Dropdown Styling Script -->
     <script>
+        var CURRENT_SET = "";
         var x, i, j, selElmnt, a, b, c;
         /*look for any elements with the class "custom-select":*/
         x = document.getElementsByClassName("custom-select");
@@ -515,6 +516,10 @@
                 /*when the select box is clicked, close any other select boxes,
                 and open/close the current select box:*/
                 e.stopPropagation();
+                if (CURRENT_SET != $("#neighbourhood-dropdown").val()) {
+                    CURRENT_SET = $("#neighbourhood-dropdown").val();
+                    getTrees();
+                }
                 closeAllSelect(this);
                 this.nextSibling.classList.toggle("select-hide");
                 this.classList.toggle("select-arrow-active");
@@ -547,6 +552,7 @@
 
     <!-- TODO: Function to show Mood Dropdown if neighbourhood is chosen -- not working :( -->
     <script>
+
         $(document).ready(function() {
             $('#mood').hide();
         });
@@ -557,6 +563,31 @@
             } else {
                 $('#mood').hide();
             }
+        }
+
+        function getTrees() {
+
+            var neighbourhood = $("#neighbourhood-dropdown").val();
+            var neighbourhoodData = neighbourhood.split(",");
+            var park = neighbourhoodData[1] ? neighbourhoodData[1] : "";
+            var tree = neighbourhoodData[0] ? neighbourhoodData[0] : "";
+
+            $.ajax({
+                url: "{% url 'trees' %}",
+                type: 'post',
+                data: {
+                    "tree_neighbourhood":tree,
+                    "park_neighbourhood": park,
+                    "mood": $("#mood").val(),
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                error: function(xhr, ajaxOptions, thrownError){ alert(thrownError); },
+                success: function(data){
+
+                    console.log(data);
+
+                }
+            });
         }
     </script>
 

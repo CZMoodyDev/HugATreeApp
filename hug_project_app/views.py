@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from hug_project_app.models import Tree, FoodTree, Park
+from hug_project_app.models import Tree, FoodTree, Park, UserProfile
 from datetime import datetime
 import calendar
 from django.http import JsonResponse
@@ -11,28 +11,83 @@ from django import forms
 
 
 def index(request):
+    return render(request, 'index.html')
+
+def trees(request):
+    response = {} #Default empty response
+
     trees = []
+    parks = []
+    food_trees = []
 
-    tree_objects = Tree.objects.all()
+    if request.method == "POST":
+        tree_objects = {}
+        park_objects = {}
+        food_tree_objects = {}
 
-    for tree in tree_objects:
-        single_tree = {}
+        if (request.POST['mood'] == "3"):
+            food_tree_objects = FoodTree.objects.all() #TODO: Figure out how to filter out by neighbourhood
 
-        single_tree["name"] = tree.COMMON_NAME
-        single_tree["type"] = "Tree"
-        single_tree["icon"] = "TODO"
-        single_tree["id"] = tree.id
-        single_tree["lat"] = tree.LATITUDE
-        single_tree["lon"] = tree.LONGITUDE
-        single_tree["neighbourhood"] = tree.NEIGHBOURHOOD_NAME
-        single_tree["diameter"] = tree.DIAMETER
-        single_tree["details"] = "TODO"
-        single_tree["TREE_ID"] = tree.TREE_ID
+        if (request.POST['mood'] == "4"):
+            park_objects = Park.objects.filter(NeighbourhoodName__contains = request.POST['park_neighbourhood'])
 
-        trees.append(single_tree)
+        if request.POST['tree_neighbourhood'] != "":
+            tree_objects = Tree.objects.filter(NEIGHBOURHOOD_NAME__exact = request.POST["tree_neighbourhood"])
 
-    return render(request, 'index.html', {"trees": trees})
+            if request.POST['mood'] not in ["", "3", "4"]:
+                #TODO: If mood is 0, 1, 2, filter based on diameter
+                tree_objects = Tree.objects.filter(DIAMETER__gt=0)
 
+        #TODO: Handle favourites by checking if ID is in list of user favourites. Swap icon if yes
+        for tree in tree_objects:
+            single_tree = {}
+
+            single_tree["name"] = tree.COMMON_NAME
+            single_tree["type"] = "Tree"
+            single_tree["icon"] = "/static/images/tree"
+            single_tree["id"] = tree.id
+            single_tree["lat"] = tree.LATITUDE
+            single_tree["lon"] = tree.LONGITUDE
+            single_tree["neighbourhood"] = tree.NEIGHBOURHOOD_NAME
+            single_tree["diameter"] = tree.DIAMETER
+            single_tree["details"] = "TODO"
+            single_tree["TREE_ID"] = tree.TREE_ID
+
+            trees.append(single_tree)
+
+        for park in park_objects:
+            single_park = {}
+            single_park["name"] = park.Name
+            single_park["type"] = "Park"
+            single_park["icon"] = "/static/images/park" #TODO: Not sure is this is correct way to call icon from google marker
+            single_park["id"] = park.id
+            single_park["lat"] = park.LATITUDE
+            single_park["lon"] = park.LONGITUDE
+            single_park["neighbourhood"] = park.NeighbourhoodName
+            single_park["details"] = "TODO"
+            single_park["ParkID"] = tree.ParkID
+
+            parks.append(single_park)
+
+        for food_tree in food_tree_objects:
+            single_tree = {}
+
+            single_tree["name"] = food_tree.Name
+            single_tree["type"] = "FoodTree"
+            single_tree["icon"] = "/static/images/fruit-tree" #TODO: Not sure is this is correct way to call icon from google marker
+            single_tree["id"] = food_tree.id
+            single_tree["lat"] = food_tree.LATITUDE
+            single_tree["lon"] = food_tree.LONGITUDE
+            single_tree["details"] = "TODO"
+            single_tree["MAPID"] = food_tree.MAPID
+
+            food_trees.append(single_tree)
+
+    all_trees = trees + parks + food_trees
+
+    responseData = dict(enumerate(all_trees))
+
+    return JsonResponse(responseData)
 
 def about(request):
     return render(request, 'about.html')
